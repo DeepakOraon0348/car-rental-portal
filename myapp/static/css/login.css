@@ -1,0 +1,143 @@
+.login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #2563eb, #c8f55f, #151d35);
+    background-size: 300% 300%;
+    animation: waterFlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes waterFlow {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 50% 50%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.login-sec {
+    justify-content: center;
+}
+
+/* Card */
+.login-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 25px;
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.8s ease;
+}
+
+/* Heading */
+.login-form h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.login-form p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Input fields */
+.login-form label {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.login-form input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+}
+
+/* Links */
+.login-form a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #2563eb;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.login-form button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.login-form button:hover {
+    background: #1e40af;
+}
+
+/* Social buttons */
+.login-form button:nth-child(1),
+.login-form button:nth-child(2) {
+    width: 48%;
+    display: inline-block;
+    margin: 5px 1%;
+    background: #f1f5f9;
+    color: #000;
+}
+
+.button-icon {
+    display: flex;
+}
+
+.login-form button:nth-child(1):hover {
+    background: #db4437;
+    /* Google red */
+    color: #fff;
+}
+
+.login-form button:nth-child(2):hover {
+    background: #1877f2;
+    /* Facebook blue */
+    color: #fff;
+}
+
+/* Divider text */
+.login-form p {
+    margin-top: 10px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

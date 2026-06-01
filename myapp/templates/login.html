@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Car Rental Portal | login{% endblock title %}
+{% block css %} <link rel="stylesheet" href="{% static 'css/login.css' %}" />{% endblock css %}
+{% block content %}
+<section class="login">
+  <div class="container">
+    <div class="row login-sec">
+      <div class="col-md-4 col-sm-6 col-12">
+        <div class="wave">
+          <div class="login-form">
+            <h5>Welcome Back!</h5>
+            <p>login to your account</p>
+            <form method="post">
+              {% csrf_token %}
+              <div class="email">
+                <label for="">
+                  <h6>Email Address:</h6>
+                  <input type="text" name="username" />
+                </label>
+              </div>
+            <div class="password">
+              <label for="">
+                <h6>password:</h6>
+                <input type="password" name="password" />
+              </label>
+            </div>
+            <div style="margin-left: 11rem; margin-top: 1rem">
+              <a href="#">
+                <h6>Forget Password?</h6>
+              </a>
+            </div>
+            <div>
+              <button type="submit" style="text-decoration: none; color: white">
+                <a href="{% url 'profile'%}" style="text-decoration: none">login</a>
+              </button>
+            </div>
+            <div>
+              <p>or continue with</p>
+            </div>
+            <div class="button-icon">
+              <button><i class="fa-brands fa-google"></i> Google</button>
+              <button><i class="fa-brands fa-facebook-f"></i> Facebook</button>
+            </div>
+            <div>
+              <p>Don't have an acccount? <a href="{% url 'signup'%}">Sign Up</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+

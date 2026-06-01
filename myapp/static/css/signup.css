@@ -1,0 +1,135 @@
+@media (max-width:2560px) {
+    .sign-in {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(160deg, #2563eb, #c8f55f, #151d35);
+        background-size: 300% 300%;
+        animation: waterFlow 6s ease-in-out infinite alternate;
+    }
+    @keyframes waterFlow {
+        0% {
+            background-position: 0% 0%;
+        }
+
+        50% {
+            background-position: 50% 50%;
+        }
+
+        100% {
+            background-position: 100% 100%;
+        }
+    }
+
+    /* Center row */
+    .sign-in-1 {
+        justify-content: center;
+    }
+
+    /* Card */
+    .sign-in-12 {
+        width: 100%;
+        padding: 30px 25px;
+        border-radius: 15px;
+
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+        animation: fadeIn 0.8s ease;
+    }
+
+    /* Heading */
+    .sign-in-12 h5 {
+        text-align: center;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .sign-in-12 p {
+        text-align: center;
+        color: #555;
+        font-size: 14px;
+    }
+
+    /* Inputs */
+    .sign-in-12 h6 {
+        margin-top: 12px;
+        font-size: 14px;
+    }
+
+    .sign-in-12 input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    /* Focus effect */
+    .sign-in-12 input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Button */
+    .sign-in-12 button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+
+        background: #2563eb;
+        color: white;
+        font-weight: 500;
+
+        transition: 0.3s;
+    }
+
+    .sign-in-12 button:hover {
+        background: #1e40af;
+    }
+
+    /* Link */
+    .sign-in-12 a {
+        color: #2563eb;
+        text-decoration: none;
+    }
+
+    .sign-in-12 a:hover {
+        text-decoration: underline;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+}
+
+@media (max-width:2560px) {}
+
+@media (max-width:2560px) {}
+
+@media (max-width:768px) {
+    .sign-in-12 {
+        padding: 20px;
+    }
+}
+
+@media (max-width:2560px) {}
+
+@media (max-width:2560px) {}

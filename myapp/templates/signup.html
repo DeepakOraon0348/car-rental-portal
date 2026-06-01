@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% load static%} {% block title%}Car Rental Portal |
+signup{% endblock title%} {% block css %}<link
+  rel="stylesheet"
+  href="{% static 'css/signup.css' %}"
+/>{% endblock css %} {%block content%}
+<section class="sign-in">
+  <div class="container">
+    <form action={% url 'signup' %} method="POST" >
+      <div class="row sign-in-1">
+        <div class="col-md-4 col-sm-6 col-12">
+          <div class="sign-in-12 mt-4">
+            <h5>Create Account</h5>
+            <p>Sign up to get start</p>
+            <div>
+              <h6>Full Name:</h6>
+              <input type="text" name="fname" placeholder="full name" />
+            </div>
+            <div>
+              <h6>Email Address:</h6>
+              <input type="text" name="email" placeholder="email address" />
+            </div>
+            <div>
+              <h6>Mobile Number:</h6>
+              <input type="text" />
+            </div>
+            <div>
+              <h6>Password:</h6>
+              <input type="text" name="password1" placeholder="password...." />
+            </div>
+            <div>
+              <h6>Confirm Password:</h6>
+              <input
+                type="text"
+                name="password2"
+                placeholder="comfirm password.."
+              />
+            </div>
+            <div>
+              <button type="submit" style="text-decoration: none; color: white"> 
+                  Sign Up
+              </button>
+            </div>
+            <div>
+              <p>
+                Already have an account? <a href="{% url 'login' %}">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock content %}
