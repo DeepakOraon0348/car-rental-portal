@@ -291,76 +291,77 @@
     <!-- ============Sidebar========== -->
     <div class="sidebar">
       <div class="logo">CarRental</div>
-
+      {% if user.is_authenticated %}
       <div class="profile-box">
         <!-- <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400" alt=""> -->
         <i
           class="fa-solid fa-circle-user"
           style="font-size: 48px; color: #1d4ed8"
         ></i>
-        <h4>Deepak Oraon</h4>
+        <h4 style="color: whi;">{{ user.username }}</h4>
         <p>Premium User</p>
       </div>
+      {% endif %}
 
       <ul class="menu">
         <li>
-          <a href="#" class="active">
+          <a href="{% url 'profile' %}#dashboard" class="active">
             <i class="fa-solid fa-table-columns"></i>
             Dashboard
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#bookings">
             <i class="fa-solid fa-car"></i>
             My Bookings
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#history">
             <i class="fa-solid fa-clock-rotate-left"></i>
             Rental History
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#wishlist">
             <i class="fa-solid fa-heart"></i>
             Wishlist
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#payments">
             <i class="fa-solid fa-wallet"></i>
             Payments
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#settings">
             <i class="fa-solid fa-user"></i>
             Profile Settings
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#notifications">
             <i class="fa-solid fa-bell"></i>
             Notifications
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#vendor">
             <i class="fa-solid fa-store"></i>
             Become Vendor
           </a>
         </li>
 
         <li>
-          <a href="#">
+          <a href="{% url 'profile' %}#logout">
             <i class="fa-solid fa-right-from-bracket"></i>
             Logout
           </a>
@@ -368,10 +369,26 @@
       </ul>
     </div>
     <!-- ============Main Content========== -->
-    <div class="main-content">
+
+    <div class="main-content" id="dashboard">
+      <button>
+        <a
+          href="{% url 'index' %}"
+          style="
+            width: 50%;
+            background-color: blueviolet;
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+          "
+        >
+          < Back to Home
+        </a>
+      </button>
       <!-- Topbar -->
       <div class="topbar">
-        <h3>Welcome Back, Deepak 👋</h3>
+        <h3>Welcome Back,👋</h3>
 
         <div class="search-box">
           <input type="text" placeholder="Search your bookings..." />
@@ -538,11 +555,11 @@
             <h4>Quick Links</h4>
             <hr />
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Browse Cars</a></li>
-              <li><a href="#">Offers</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'index' %}#Brose">Browse Cars</a></li>
+              <li><a href="{% url 'index' %}#offer">Offers</a></li>
+              <li><a href="{% url 'index' %}#about">About</a></li>
+              <li><a href="{% url 'index' %}#contact">Contact</a></li>
             </ul>
           </div>
 
