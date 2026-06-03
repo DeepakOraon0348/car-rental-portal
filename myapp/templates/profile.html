@@ -387,10 +387,12 @@
         </a>
       </button>
       <!-- Topbar -->
+       {% if user.is_authenticated %}
       <div class="topbar">
-        <h3>Welcome Back,👋</h3>
+        <h3>Welcome Back, {{ user.username }}! 👋</h3>
 
         <div class="search-box">
+        {% endif %}
           <input type="text" placeholder="Search your bookings..." />
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>

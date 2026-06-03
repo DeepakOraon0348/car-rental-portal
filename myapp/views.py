@@ -51,16 +51,18 @@ def signup(request):
     return render(request, 'signup.html')
 
 @csrf_exempt
-def login(request):
+def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
+        print(email, password)
 
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, username=email, password=password)
+        print(user)
 
         if user is not None:
             login(request, user)
-            return redirect('profile')
+            return redirect('search')
         else:
             print("Invalid credentials")
             return redirect('login')

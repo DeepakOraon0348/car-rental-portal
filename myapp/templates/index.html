@@ -78,10 +78,10 @@
                             <div class="log-in-sec" style="display: flex; flex-direction: column;">
                                 <a href="{% url 'login' %}"><i class="fa-solid fa-circle-user"></i></a>
                                   {% if user.is_authenticated %}
-                                        <a href="{% url 'profile' %}">Profile</a>
-                                        <p>Welcome, {{ user.username }}!</p>
+                                        <a href="{% url 'profile' %}" style="color: black;">Profile</a>
+                                        <p style="color: black;">Welcome, {{ user.username }}!</p>
                                   {% else %}
-                                        <a href="{% url 'login' %}">Login</a>
+                                        <a href="{% url 'login' %}" style="color: black;">Login</a>
                                   {% endif %}
                             </div>
 
