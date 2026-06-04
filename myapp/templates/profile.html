@@ -298,7 +298,7 @@
           class="fa-solid fa-circle-user"
           style="font-size: 48px; color: #1d4ed8"
         ></i>
-        <h4 style="color: whi;">{{ user.username }}</h4>
+        <h4 style="color: whi">{{ user.username }}</h4>
         <p>Premium User</p>
       </div>
       {% endif %}
@@ -361,10 +361,10 @@
         </li>
 
         <li>
-          <a href="{% url 'profile' %}#logout">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            Logout
-          </a>
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
         </li>
       </ul>
     </div>
@@ -387,12 +387,12 @@
         </a>
       </button>
       <!-- Topbar -->
-       {% if user.is_authenticated %}
+      {% if user.is_authenticated %}
       <div class="topbar">
         <h3>Welcome Back, {{ user.username }}! 👋</h3>
 
         <div class="search-box">
-        {% endif %}
+          {% endif %}
           <input type="text" placeholder="Search your bookings..." />
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>

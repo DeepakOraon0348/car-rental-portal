@@ -88,6 +88,11 @@ car-detail{% endblock title %}
           <div class="col-md-2" style="padding-left: 0px">
             <div class="log-in-sec">
               <a href="login.html"><i class="fa-solid fa-circle-user"></i></a>
+              {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}!</span>
+              {% else %}
+                <span><a href="{% url 'login' %}">Login</a></span>
+              {% endif %}
             </div>
           </div>
         </div>

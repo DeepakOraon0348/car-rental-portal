@@ -68,6 +68,13 @@ def login_view(request):
             return redirect('login')
     return render(request, 'login.html')
 
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect('login')
+
+    return redirect('profile')
+
 
 def profile(request):
     return render(request, 'profile.html')
