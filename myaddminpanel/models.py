@@ -12,3 +12,5 @@ class vendorLogin(models.Model):
 
     def __str__(self):
         return self.email
+    
+    # vendor=models.ForeignKey(vendorLogin,on_delete=models.CASCADE/SET_NULL,related_name='vendor')

@@ -1,17 +1,10 @@
+{% extends 'base_1.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Car Rental Portal</title>
 
-    <link rel="stylesheet" href="{% static 'css/style_1.css' %}">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
-<body>
+{% block title %}Login - Car Rental Portal{% endblock title %}
 
+{% block content %}
+<section class="login_1-sec">
 <div class="container">
 
     <!-- Left Section -->
@@ -33,7 +26,7 @@
 
         <div class="login-card">
 
-            <h2>Welcome Back 👋</h2>
+            <h2>Welcome Back</h2>
 
             <p>Login to continue</p>
 
@@ -43,9 +36,9 @@
                 <div class="input-group">
                     <i class="fa-solid fa-envelope"></i>
                     <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
+                        type="type"
+                        name="username"
+                        placeholder="Enter username"
                         required>
                 </div>
 
@@ -66,7 +59,7 @@
 
             <div class="bottom-text">
                 Don't have an account?
-                <a href="{% url 'signup' %}">
+                <a href="{% url 'signup-1' %}">
                     Register
                 </a>
             </div>
@@ -76,6 +69,6 @@
     </div>
 
 </div>
+</section>
 
-</body>
-</html>
+{% endblock content %}

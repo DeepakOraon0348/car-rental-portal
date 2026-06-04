@@ -1,0 +1,82 @@
+{% extends 'base_1.html'%} 
+{% load static %} 
+{% block title %}Signup - Car Rental
+Portal{% endblock title %} 
+{% block content %}
+<section class="login_1-sec">
+  <div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+      <div class="overlay">
+        <h1>Drive Your Dream Car</h1>
+
+        <p>Book premium cars from trusted local vendors anytime, anywhere.</p>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <div class="login-card">
+        <h2>Create Account</h2>
+
+        <p>Sign up to get start</p>
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <div class="input-group-1">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" name="fname" placeholder="Full Name" required />
+          </div>
+
+          <div class="input-group-1">
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+
+          <div class="input-group-1">
+            <i class="fa-solid fa-phone"></i>
+            <input
+              type="text"
+              name="mobile"
+              placeholder="Mobile Number"
+              required
+            />
+          </div>
+
+          <div class="input-group-1">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              name="password1"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <div class="input-group-1">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              name="password2"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="bottom-text">
+          Already have an account?
+          <a href="{% url 'login_1' %}"> Login </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

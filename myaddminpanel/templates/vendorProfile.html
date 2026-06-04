@@ -1,0 +1,112 @@
+{% extends 'base_1.html' %} {% block title %}Vendor Profile - Car Rental
+Portal{% endblock title %} {% block content %}
+<section class="vendor-profile-sec">
+  <div class="container-1">
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+      <div class="logo">
+        <h2>🚗 DriveX</h2>
+      </div>
+
+      <ul>
+        <li class="active">
+          <i class="fa-solid fa-house"></i>
+          Dashboard
+        </li>
+
+        <li>
+          <i class="fa-solid fa-car"></i>
+          My Cars
+        </li>
+
+        <li>
+          <i class="fa-solid fa-calendar-check"></i>
+          Bookings
+        </li>
+
+        <li>
+          <i class="fa-solid fa-user"></i>
+          Profile
+        </li>
+
+        <li>
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main">
+      <div class="topbar">
+        <h2>Welcome, {{ user.username|title }} 👋</h2>
+      </div>
+
+      <!-- Stats -->
+
+      <div class="stats">
+        <div class="card">
+          <h3>Cars</h3>
+          <p>12</p>
+        </div>
+
+        <div class="card">
+          <h3>Bookings</h3>
+          <p>34</p>
+        </div>
+
+        <div class="card">
+          <h3>Earnings</h3>
+          <p>₹45,000</p>
+        </div>
+
+        <div class="card">
+          <h3>Rating</h3>
+          <p>4.8 ⭐</p>
+        </div>
+      </div>
+
+      <!-- Button -->
+
+      <div class="add-car">
+        <button>+ Add New Car</button>
+      </div>
+
+      <!-- Recent Cars -->
+
+      <div class="cars">
+        <h3>My Cars</h3>
+
+        <table>
+          <tr>
+            <th>Car</th>
+            <th>Price/Day</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+
+          <tr>
+            <td>Hyundai Creta</td>
+            <td>₹2500</td>
+            <td>Available</td>
+            <td>
+              <button>Edit</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Mahindra Scorpio</td>
+            <td>₹3500</td>
+            <td>Booked</td>
+            <td>
+              <button>Edit</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
