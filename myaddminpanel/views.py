@@ -12,12 +12,15 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        print(username, password)
 
-        user = authenticate(request, username=username  , password=password)
+        user = vendorLogin.objects.get(username=username, password=password)
+        print(user)
         if user:
-            login(request, user)
+            vendorLogin(request, user)
             return redirect('vendor-profile')  # Replace 'home' with your actual home page URL name
+        else:
+            print("Invalid credentials")
+            return redirect('login_1')  # Replace 'login' with your actual login page URL name
     return render(request, 'login_1.html')
 
 @csrf_exempt
@@ -56,3 +59,7 @@ def signup_1(request):
 
 def vendor_profile(request):
     return render(request, 'vendorProfile.html')
+
+def logout_view_1(request):
+    logout(request)
+    return redirect('login_1')

@@ -24,15 +24,23 @@ Portal{% endblock title %} {% block content %}
           <i class="fa-solid fa-calendar-check"></i>
           Bookings
         </li>
-
+        
         <li>
           <i class="fa-solid fa-user"></i>
-          Profile
+          {% if user.is_authenticated %}
+            {{ user.username|title }}
+          {% else %}
+            Profile
+          {% endif %}
         </li>
 
         <li>
-          <i class="fa-solid fa-right-from-bracket"></i>
-          Logout
+            <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i>
+          Logout</button>
+          </form>
+          
         </li>
       </ul>
     </div>
