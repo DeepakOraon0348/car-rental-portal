@@ -49,7 +49,11 @@ Portal{% endblock title %} {% block content %}
 
     <div class="main">
       <div class="topbar">
-        <h2>Welcome, {{ user.username|title }} 👋</h2>
+        {% if user.is_authenticated %}
+          <h2>Welcome, {{ user.username|title }} 👋</h2>
+        {% else %}
+          <h2>Welcome, Guest 👋</h2>
+        {% endif %}
       </div>
 
       <!-- Stats -->

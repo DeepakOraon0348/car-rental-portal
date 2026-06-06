@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 
-from myaddminpanel.models import vendorLogin
+from myaddminpanel.models import VendorLogin
 
 # Create your views here.
 @csrf_exempt
@@ -13,10 +13,11 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = vendorLogin.objects.get(username=username, password=password)
+        user = VendorLogin.objects.get(username=username, password=password)
         print(user)
         if user:
-            vendorLogin(request, user)
+            VendorLogin (request, user)
+            print("User logged in successfully")
             return redirect('vendor-profile')  # Replace 'home' with your actual home page URL name
         else:
             print("Invalid credentials")
@@ -37,7 +38,7 @@ def signup_1(request):
         if password == confirm_password:
 
             # Create User
-            my_user = vendorLogin.objects.create(
+            my_user = VendorLogin.objects.create(
                 username=username,
                 email=email,
                 phno=phno,
@@ -62,4 +63,5 @@ def vendor_profile(request):
 
 def logout_view_1(request):
     logout(request)
+    print("User logged out successfully")
     return redirect('login_1')
