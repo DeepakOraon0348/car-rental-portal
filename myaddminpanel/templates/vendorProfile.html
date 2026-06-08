@@ -27,15 +27,15 @@ Portal{% endblock title %} {% block content %}
         
         <li>
           <i class="fa-solid fa-user"></i>
-          {% if user.is_authenticated %}
-            {{ user.username|title }}
+          {% if request.session.vendor_name %}
+            {{ request.session.vendor_name|title }}
           {% else %}
             Profile
           {% endif %}
         </li>
 
         <li>
-            <form method="POST" action="{% url 'logout' %}">
+            <form method="POST" action="{% url 'logout_1' %}">
             {% csrf_token %}
             <button type="submit"><i class="fa-solid fa-right-from-bracket"></i>
           Logout</button>
@@ -49,8 +49,8 @@ Portal{% endblock title %} {% block content %}
 
     <div class="main">
       <div class="topbar">
-        {% if user.is_authenticated %}
-          <h2>Welcome, {{ user.username|title }} 👋</h2>
+        {% if request.session.vendor_name %}
+          <h2>Welcome, {{ request.session.vendor_name|title }} 👋</h2>
         {% else %}
           <h2>Welcome, Guest 👋</h2>
         {% endif %}

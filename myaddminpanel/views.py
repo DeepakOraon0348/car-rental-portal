@@ -6,22 +6,27 @@ from django.views.decorators.csrf import csrf_exempt
 
 from myaddminpanel.models import VendorLogin
 
-# Create your views here.
+# Create your views here.   
 @csrf_exempt
 def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    try:
+       if request.method == 'POST':
+           username = request.POST.get('username')
+           password = request.POST.get('password')
 
-        user = VendorLogin.objects.get(username=username, password=password)
-        print(user)
-        if user:
-            VendorLogin (request, user)
-            print("User logged in successfully")
-            return redirect('vendor-profile')  # Replace 'home' with your actual home page URL name
-        else:
-            print("Invalid credentials")
-            return redirect('login_1')  # Replace 'login' with your actual login page URL name
+           user = VendorLogin.objects.get(username=username, password=password)
+           print(user)
+           if user:
+               request.session['vendor_id'] = user.id
+               request.session['vendor_name'] = user.username
+               VendorLogin (request, user)
+               print("User logged in successfully")
+               return redirect('vendor-profile')  # Replace 'home' with your actual home page URL name
+    except VendorLogin.DoesNotExist:
+        print("User does not exist")       
+        return redirect('login_1')  # Replace 'login' with your actual login page URL name
+    except VendorLogin.MultipleObjectsReturned:
+        print("Duplicate Users Found")
     return render(request, 'login_1.html')
 
 @csrf_exempt
@@ -62,6 +67,6 @@ def vendor_profile(request):
     return render(request, 'vendorProfile.html')
 
 def logout_view_1(request):
-    logout(request)
+    request.session.flush()
     print("User logged out successfully")
     return redirect('login_1')
