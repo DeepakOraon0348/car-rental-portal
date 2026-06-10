@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>Car</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Price/Day</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for car in cars %}
+    <tr>
+        <td>{{ car.car_name }}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.model }}</td>
+        <td>₹{{ car.rent_per_day }}</td>
+        <td>{{ car.status }}</td>
+        <td>
+            <button>Edit</button>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No Cars Found</td>
+    </tr>
+    {% endfor %}
+</table>
