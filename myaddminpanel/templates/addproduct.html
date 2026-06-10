@@ -1,0 +1,70 @@
+{% extends 'base_1.html' %}
+{% load static %}
+{% block title %}Add Product{% endblock %}
+{% block content %}
+<div class="container-1">
+  {% include 'sidebar.html' %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+     <h2 class="">Add New Car</h2>
+
+    <input type="text" name="car_name" placeholder="Car Name" />
+
+    <input type="text" name="brand" placeholder="Brand" />
+
+    <input type="text" name="model" placeholder="Model" />
+
+    <input type="number" name="year" placeholder="Year" />
+
+    <input type="text" name="city" placeholder="City" />
+
+    <input type="text" name="pickup_location" placeholder="Pickup Location" />
+
+    <input type="number" step="0.01" name="rent_per_day" placeholder="Rent Per Day" />
+
+    <select name="fuel_type">
+      <option value="">Select Fuel Type</option>
+      <option value="Petrol">Petrol</option>
+      <option value="Diesel">Diesel</option>
+      <option value="CNG">CNG</option>
+      <option value="Electric">Electric</option>
+      <option value="Hybrid">Hybrid</option>
+    </select>
+
+    <select name="transmission">
+      <option value="">Select Transmission</option>
+      <option value="Manual">Manual</option>
+      <option value="Automatic">Automatic</option>
+    </select>
+
+    <input type="number" name="seats" placeholder="Seats" />
+
+    <input type="number" name="mileage" placeholder="Mileage" />
+
+    <label><input type="checkbox" name="ac" />AC</label>
+
+    <label><input type="checkbox" name="power_steering" />Power Steering</label>
+
+    <label><input type="checkbox" name="power_windows" />Power Windows</label>
+
+    <label><input type="checkbox" name="music_system" />Music System</label>
+
+    <label><input type="checkbox" name="airbags" />Airbags</label>
+
+    <label><input type="checkbox" name="gps" />GPS</label>
+
+    <input type="file" name="image" />
+
+    <select name="status">
+      <option value="Available">Available</option>
+      <option value="Booked">Booked</option>
+      <option value="Maintenance">Maintenance</option>
+    </select>
+
+    <textarea name="description" rows="5" placeholder="Description"></textarea>
+
+    <button type="submit">Add Car</button>
+  </form>
+</div>
+{% endblock %}

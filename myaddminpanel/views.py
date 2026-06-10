@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 
-from myaddminpanel.models import VendorLogin
+from myaddminpanel.models import *
 
 # Create your views here.   
 @csrf_exempt
@@ -70,3 +70,54 @@ def logout_view_1(request):
     request.session.flush()
     print("User logged out successfully")
     return redirect('login_1')
+
+def add_car(request):
+    # Check if vendor is logged in
+    vendor_id = request.session.get('vendor_id')
+
+    if not vendor_id:
+        return redirect('login_1')
+
+    if request.method == 'POST':
+
+        vendor = VendorLogin.objects.get(id=vendor_id)
+
+        car = Car(
+            vendor=vendor,
+
+            car_name=request.POST.get('car_name'),
+            brand=request.POST.get('brand'),
+            model=request.POST.get('model'),
+            year=request.POST.get('year'),
+
+            city=request.POST.get('city'),
+            pickup_location=request.POST.get('pickup_location'),
+
+            rent_per_day=request.POST.get('rent_per_day'),
+
+            fuel_type=request.POST.get('fuel_type'),
+            transmission=request.POST.get('transmission'),
+
+            seats=request.POST.get('seats') or 4,
+            mileage=request.POST.get('mileage') or 0,
+
+            ac='ac' in request.POST,
+            power_steering='power_steering' in request.POST,
+            power_windows='power_windows' in request.POST,
+            music_system='music_system' in request.POST,
+            airbags='airbags' in request.POST,
+            gps='gps' in request.POST,
+
+            status=request.POST.get('status'),
+
+            description=request.POST.get('description'),
+
+            image=request.FILES.get('image')
+        )
+
+        car.save()
+
+        print("Car Added Successfully")
+
+        return redirect('vendor-profile')
+    return render(request, 'addproduct.html')

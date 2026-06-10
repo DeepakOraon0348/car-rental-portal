@@ -1,0 +1,47 @@
+<div class="sidebar">
+  <div class="logo">
+    <h2>🚗 DriveX</h2>
+  </div>
+
+  <ul>
+    <li class="active">
+      <i class="fa-solid fa-house"></i>
+      Dashboard
+    </li>
+    <li class="add-car">
+      <a href="{% url 'add-car' %}" style="text-decoration: none;">
+        <i class="fa-solid fa-plus"></i>
+        Add Car
+      </a>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-car"></i>
+      My Cars
+    </li>
+
+    <li>
+      <i class="fa-solid fa-calendar-check"></i>
+      Bookings
+    </li>
+
+    <li>
+      <i class="fa-solid fa-user"></i>
+      {% if request.session.vendor_name %}
+        {{ request.session.vendor_name|title }}
+      {% else %}
+        Profile
+      {% endif %}
+    </li>
+
+    <li>
+      <form method="POST" action="{% url 'logout_1' %}">
+        {% csrf_token %}
+        <button type="submit">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </button>
+      </form>
+    </li>
+  </ul>
+</div>

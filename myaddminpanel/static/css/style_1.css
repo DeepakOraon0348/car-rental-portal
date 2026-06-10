@@ -294,3 +294,148 @@ td button{
     }
 
 }
+/* ========================= add Product section ====================== */
+.container-1 form {
+    flex: 1;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+/* Inputs */
+.container-1 form input[type="text"],
+.container-1 form input[type="number"],
+.container-1 form input[type="file"],
+.container-1 form select,
+.container-1 form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.container-1 form input:focus,
+.container-1 form select:focus,
+.container-1 form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
+}
+
+/* Description Full Width */
+.container-1 form textarea {
+    grid-column: 1 / -1;
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* File Upload Full Width */
+.container-1 form input[type="file"] {
+    grid-column: 1 / -1;
+    padding: 10px;
+}
+
+/* Features Section */
+.container-1 form label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Checkbox Styling */
+.container-1 form input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.container-1 form button {
+    grid-column: 1 / -1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.container-1 form button:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .container-1 {
+        flex-direction: column;
+    }
+
+    .container-1 form {
+        grid-template-columns: 1fr;
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .container-1 form textarea,
+    .container-1 form button,
+    .container-1 form input[type="file"] {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .container-1 form {
+        padding: 15px;
+    }
+
+    .container-1 form input,
+    .container-1 form select,
+    .container-1 form textarea {
+        font-size: 14px;
+    }
+
+    .container-1 form button {
+        font-size: 15px;
+    }
+}
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #222;
+    font-size: 28px;
+    font-weight: 700;
+}
+.features {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
