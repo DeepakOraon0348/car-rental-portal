@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
+from myaddminpanel.models import *
 
 
 # Create your views here.
@@ -10,7 +11,11 @@ def index(request):
     return render(request, 'index.html')
 
 def search(request):
-    return render(request, 'search.html')
+    cars = Car.objects.all()
+    context = {
+        'cars': cars
+    }
+    return render(request, 'search.html', context)
 
 def CarDetail(request):
     return render(request, 'car-detail.html')

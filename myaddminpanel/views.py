@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 
+
 from myaddminpanel.models import *
 
 # Create your views here.   
@@ -147,3 +148,6 @@ def view_cars(request):
         print(car.car_name, car.vendor_id)
 
     return render(request, 'vendor_view_cars.html', {'cars': cars})
+
+# ===================== fetching all cars to search bar =====================
+

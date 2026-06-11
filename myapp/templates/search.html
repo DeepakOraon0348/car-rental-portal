@@ -323,4 +323,19 @@
     </div>
   </div>
 </footer> {% endcomment %}
+
+{% for car in cars %}
+  <div class="col-md-4 col-sm-6 col-12">
+    <div class="card">
+      <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ car.car_name }}</h5>
+        <p class="card-text">Price: ₹{{ car.price_per_day }}</p>
+        <p class="card-text">Price: ₹{{ car.seats }}</p>
+        <p class="card-text">Price: ₹{{ car.mileage }}</p>
+        <a href="#" class="btn btn-primary">Book Now</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
 {% endblock content%}

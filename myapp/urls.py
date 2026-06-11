@@ -1,4 +1,8 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import include, path
+
+from CarRentalPortal import settings
 from .views import *
 
 urlpatterns=[
@@ -11,3 +15,9 @@ urlpatterns=[
     path('/akash', akash, name='akash'),
     path('logout/', logout_view, name='logout')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
