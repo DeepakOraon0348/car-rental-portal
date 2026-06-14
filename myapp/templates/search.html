@@ -90,13 +90,12 @@
             </div>
           </div>
           {% comment %} ================= profile section =============== {% endcomment %}
-          <div class="col-md-2" style="margin-left: -30px">
-            <div class="log-in-sec" style="display: flex;>
+          <div class="col-md-2" style="margin-left: -30px;">
+            <div class="log-in-sec" style="display: flex;">
               {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}"><i class="fa-solid fa-circle-user"></i></a>
                 <a href="{% url 'profile' %}">{{ user.username|title}}</a>
               {% else %}
-                {% comment %} <a href="{% url 'login' %}" style="color: black;">Login</a> {% endcomment %}
                 <a href="{% url 'login' %}"><i class="fa-solid fa-circle-user"></i></a>
               {% endif %}
             </div>
@@ -254,13 +253,15 @@
               </select>
             </div>
           </div>
-          <div id="car-cards" class="row mt-4"></div>
+          
+          <div id="car-cards" class="row mt-4">
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<script src="{%static 'js/search.js'%}"></script>
+ 
 <!-- ===============footer -section=============== -->
 {% comment %} <footer class="footer">
   <div class="container">
@@ -324,7 +325,7 @@
   </div>
 </footer> {% endcomment %}
 
-{% for car in cars %}
+{% comment %} {% for car in cars %}
   <div class="col-md-4 col-sm-6 col-12">
     <div class="card">
       <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}">
@@ -337,5 +338,25 @@
       </div>
     </div>
   </div>
-{% endfor %}
+   
+{% endfor %} {% endcomment %}
+
+<script>
+    window.cars = [
+        {% for car in cars %}
+        {
+            id: {{ car.id }},
+            name: "{{ car.car_name }}",
+            brand: "{{ car.brand }}",
+            price: {{ car.rent_per_day|default:0 }},
+            fuel: "{{ car.fuel_type }}",
+            seats: {{ car.seats }},
+            ac: {{ car.ac|yesno:"true,false" }},
+            transmission: "{{ car.transmission }}",
+            image: "{{ car.image.url }}"
+        },
+        {% endfor %}
+    ];
+</script>
+<script src="{% static 'js/search.js' %}"></script>
 {% endblock content%}

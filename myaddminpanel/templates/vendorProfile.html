@@ -59,24 +59,24 @@ Portal{% endblock title %} {% block content %}
             <th>Status</th>
             <th>Action</th>
           </tr>
-
+          {% for car in cars %}
           <tr>
-            <td>Hyundai Creta</td>
-            <td>₹2500</td>
-            <td>Available</td>
+            <td>{{ car.car_name }}</td>
+            <td>₹{{ car.rent_per_day }}</td>
+            <td>{{ car.status }}</td>
             <td>
               <button>Edit</button>
             </td>
           </tr>
-
-          <tr>
+          {% endfor %}
+          {% comment %} <tr>
             <td>Mahindra Scorpio</td>
             <td>₹3500</td>
             <td>Booked</td>
             <td>
               <button>Edit</button>
             </td>
-          </tr>
+          </tr> {% endcomment %}
         </table>
         {% include 'vendor_view_cars.html' %}
       </div>

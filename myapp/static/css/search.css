@@ -22,23 +22,23 @@
 
   @keyframes smoothShadow {
     0% {
-      box-shadow: 8px 0 10px rgb(151, 245, 78);
+      box-shadow: 8px 0 10px hsl(94, 89%, 63%);
     }
 
     25% {
-      box-shadow: 0 8px 10px rgba(127, 243, 49, 0.92);
+      box-shadow: 0 8px 10px rgba(17, 23, 13, 0.92);
     }
 
     50% {
-      box-shadow: -8px 0 10px rgba(127, 243, 49, 0.92);
+      box-shadow: -8px 0 10px rgba(17, 23, 13, 0.92);
     }
 
     75% {
-      box-shadow: 0 -8px 10px rgba(127, 243, 49, 0.92);
+      box-shadow: 0 -8px 10px rgba(17, 23, 13, 0.92);
     }
 
     100% {
-      box-shadow: 8px 0 10px rgba(127, 243, 49, 0.92);
+      box-shadow: 8px 0 10px rgba(17, 23, 13, 0.92);
     }
   }
 

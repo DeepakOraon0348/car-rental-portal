@@ -62,10 +62,24 @@ def signup_1(request):
 
             return redirect('signup-1')
     
-    return render(request, 'signup_1.html')
 
 def vendor_profile(request):
-    return render(request, 'vendorProfile.html')
+    vendor_id = request.session.get('vendor_id')
+
+    print("Session Vendor ID:", vendor_id)
+
+    if not vendor_id:
+        return redirect('login_1')
+
+    vendor = VendorLogin.objects.get(id=vendor_id)
+
+    print("Current Vendor ID:", vendor.id)
+    print("Current Vendor:", vendor)
+
+    print("All Cars:", Car.objects.all())
+
+    cars = Car.objects.filter(vendor=vendor)
+    return render(request, 'vendorProfile.html' , {'vendor': vendor, 'cars': cars})
 
 def logout_view_1(request):
     request.session.flush()
@@ -124,30 +138,27 @@ def add_car(request):
     return render(request, 'addproduct.html')
 
 # data fetching from database
-def view_cars(request):
-    print("VIEW CARS FUNCTION CALLED")
-    vendor_id = request.session.get('vendor_id')
+# def view_cars(request):
+#     print("VIEW CARS FUNCTION CALLED")
+#     vendor_id = request.session.get('vendor_id')
 
-    print("Session Vendor ID:", vendor_id)
+#     print("Session Vendor ID:", vendor_id)
 
-    if not vendor_id:
-        return redirect('login_1')
+#     if not vendor_id:
+#         return redirect('login_1')
 
-    vendor = VendorLogin.objects.get(id=vendor_id)
+#     vendor = VendorLogin.objects.get(id=vendor_id)
 
-    print("Current Vendor ID:", vendor.id)
-    print("Current Vendor:", vendor)
+#     print("Current Vendor ID:", vendor.id)
+#     print("Current Vendor:", vendor)
 
-    print("All Cars:", Car.objects.all())
+#     print("All Cars:", Car.objects.all())
 
-    cars = Car.objects.filter(vendor=vendor)
+#     cars = Car.objects.filter(vendor=vendor)
 
-    print("Cars Count:", cars.count())
+#     print("Cars Count:", cars.count())
 
-    for car in cars:
-        print(car.car_name, car.vendor_id)
-
-    return render(request, 'vendor_view_cars.html', {'cars': cars})
+#     return redirect('vendor-profile', {'cars': cars})
 
 # ===================== fetching all cars to search bar =====================
 

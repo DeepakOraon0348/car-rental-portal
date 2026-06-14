@@ -1,160 +1,163 @@
-const cars = [
-    {
-        id: 1,
-        name: "Swift",
-        brand: "Maruti",
-        price: 1200,
-        fuel: "Petrol",
-        seats: 5,
-        ac: true,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 2,
-        name: "Creta",
-        brand: "Suzuki",
-        price: 2000,
-        fuel: "Diesel",
-        seats: 5,
-        ac: true,
-        transmission: "Automatic",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 3,
-        name: "Bolero",
-        brand: "Mahindra",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 4,
-        name: "Bolero",
-        brand: "Toyoto",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 5,
-        name: "Bolero",
-        brand: "Mahindra",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 6,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 7,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 8,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 9,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 10,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 11,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 12,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 13,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    },
-    {
-        id: 14,
-        name: "Bolero",
-        brand: "Toyota",
-        price: 1500,
-        fuel: "Diesel",
-        seats: 7,
-        ac: false,
-        transmission: "Manual",
-        image: "/static/image/honda-HR-removebg-preview.png"
-    }
-];
-
+const cars = window.cars;
+console.log(window.cars);
+console.log(window.cars.length);
+// const cars = [
+//     {
+//         id: 1,
+//         name: "Swift",
+//         brand: "Maruti",
+//         price: 1200,
+//         fuel: "Petrol",
+//         seats: 5,
+//         ac: true,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 2,
+//         name: "Creta",
+//         brand: "Suzuki",
+//         price: 2000,
+//         fuel: "Diesel",
+//         seats: 5,
+//         ac: true,
+//         transmission: "Automatic",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 3,
+//         name: "Bolero",
+//         brand: "Mahindra",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 4,
+//         name: "Bolero",
+//         brand: "Toyoto",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 5,
+//         name: "Bolero",
+//         brand: "Mahindra",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 6,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 7,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 8,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 9,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 10,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 11,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 12,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 13,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     },
+//     {
+//         id: 14,
+//         name: "Bolero",
+//         brand: "Toyota",
+//         price: 1500,
+//         fuel: "Diesel",
+//         seats: 7,
+//         ac: false,
+//         transmission: "Manual",
+//         image: "/static/image/honda-HR-removebg-preview.png"
+//     }
+// ];
+console.log("Hellow DeepaK I AM WORKIGN!");
 
 const container = document.getElementById("car-cards");
 
@@ -174,6 +177,7 @@ cars.forEach(car => {
             
             <div class="card-body">
                 <h5 class="card-title">${car.brand} ${car.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${car.brand}</h6>
 
                 <div class="features">
                     <span>⛽ ${car.fuel}</span>
