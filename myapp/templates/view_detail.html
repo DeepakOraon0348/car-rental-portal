@@ -1,273 +1,302 @@
-{% extends 'base.html' %} {% load static %} {% block title %}Car Rental Portal |
-car-detail{% endblock title %} {% block css %}<link
-  rel="stylesheet"
-  href="{% static 'css/car-detail.css' %}"
-/>{% endblock css %} {% block content %}
-<section class="topbar">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <a href="mailto:support@carbook.com">
-          <p><i class="fa-solid fa-envelope"></i> : support@carbook.com</p>
-        </a>
-      </div>
-      <div class="col-md-4 col-6">
-        <a href="tel:09876543210">
-          <p><i class="fa-solid fa-phone"></i> : +91-9876543210</p>
-        </a>
-      </div>
-      <div class="col-md-4 col-6">
-        <a href="https://maps.app.goo.gl/7VXaGJdYnZ6BHrd58" target="_blank">
-          <p><i class="fa-solid fa-map"></i> : Jharkhand, India</p>
-        </a>
+{% extends 'base.html' %} {% load static %} {% block title %}
+  Car Rental Portal | car-detail
+{% endblock %} {% block css %}
+  <link rel="stylesheet" href="{% static 'css/car-detail.css' %}" />
+{% endblock %} {% block content %}
+  <section class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="mailto:support@carbook.com">
+            <p>
+              <i class="fa-solid fa-envelope"></i> : support@carbook.com
+            </p>
+          </a>
+        </div>
+        <div class="col-md-4 col-6">
+          <a href="tel:09876543210">
+            <p>
+              <i class="fa-solid fa-phone"></i> : +91-9876543210
+            </p>
+          </a>
+        </div>
+        <div class="col-md-4 col-6">
+          <a href="https://maps.app.goo.gl/7VXaGJdYnZ6BHrd58" target="_blank">
+            <p>
+              <i class="fa-solid fa-map"></i> : Jharkhand, India
+            </p>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<header class="head">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding: 5px">
-    <a class="navbar-brand" href="{% url 'index'%}"
-      ><img src="{% static 'image/aq1.jpg'%}" width="100%"
-    /></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse p-2 nav-1" id="navbarNav">
-      <ul class="navbar-nav nav-list">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'index'%}"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'index'%}#Brose">Browse Cars</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'index'%}#offer">Offer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-disabled="" href="{% url 'index'%}#about"
-            >About Us</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-disabled="" href="{% url 'index'%}#contact"
-            >Contact Us</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link logg" aria-disabled="" href="{% url 'login'%}"
-            >Login</a
-          >
-        </li>
-      </ul>
-      <div class="input-sec">
-        <div class="row">
-          <div class="col-md-10" style="padding-right: 0px">
-            <div class="input-sec-nav">
-              <div class="row g-0">
-                <div class="col-md-10 col-10">
-                  <input type="text" class="form-control u" />
-                </div>
-                <div class="col-md-2 col-2">
-                  <button class="search-1">
-                    <a href="login.html"
-                      ><i class="fa-brands fa-sistrix"></i
-                    ></a>
-                  </button>
+  <header class="head">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding: 5px">
+      <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'image/aq1.jpg' %}" width="100%" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse p-2 nav-1" id="navbarNav">
+        <ul class="navbar-nav nav-list">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}#Brose">Browse Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}#offer">Offer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-disabled="" href="{% url 'index' %}#about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-disabled="" href="{% url 'index' %}#contact">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logg" aria-disabled="" href="{% url 'login' %}">Login</a>
+          </li>
+        </ul>
+        <div class="input-sec">
+          <div class="row">
+            <div class="col-md-10" style="padding-right: 0px">
+              <div class="input-sec-nav">
+                <div class="row g-0">
+                  <div class="col-md-10 col-10">
+                    <input type="text" class="form-control u" />
+                  </div>
+                  <div class="col-md-2 col-2">
+                    <button class="search-1"><a href="login.html"><i class="fa-brands fa-sistrix"></i></a></button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-2" style="padding-left: 0px">
-            <div class="log-in-sec">
-              <a href="login.html"><i class="fa-solid fa-circle-user"></i></a>
-              {% if user.is_authenticated %}
-              <span>Welcome, {{ user.username }}!</span>
-              {% else %}
-              <span><a href="{% url 'login' %}">Login</a></span>
-              {% endif %}
+            <div class="col-md-2" style="padding-left: 0px">
+              <div class="log-in-sec">
+                <a href="login.html"><i class="fa-solid fa-circle-user"></i></a>
+                {% if user.is_authenticated %}
+                  <span>Welcome, {{ user.username }}!</span>
+                {% else %}
+                  <span><a href="{% url 'login' %}">Login</a></span>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
-<!--================ car detail-section============= -->
-<section class="car-detail">
-{% if car %}
-  <div class="container">
-    {% comment %} ==============detail view section=============== {% endcomment %}
-    <div id="car-detail">
-      <div class="col-md-12 col-sm-12 col-12">
-        <div class="card" style="width: 100%; height: 100vh !important; display: flex !important;">
-          <div style="width: 50%;"><img src="{{ car.image.url }}" class="card-img-top" width="100%" height="60%" /></div>
+    </nav>
+  </header>
+  <!-- ================ car detail-section============= -->
+  <section class="car-detail">
+    {% if car %}
+      <div class="container">
+        {% comment %}==============detail view section==============={% endcomment %}
+        <div id="car-detail">
+          <div class="row">
+            <div class="col-md-6 col-sm-12 col-12">
+              <img src="{{ car.image.url }}" alt="{{ car.name }}" width="100%" height="100%" />
+            </div>
+            <div class="card col-md-6 col-sm-12 col-12" style="border: 1px solid black; border-radius: 10px; padding: 20px; background-color: rgba(255, 166, 0, 0.358);">
+              <h2>{{ car.car_name }}</h2>
+              <h3>{{ car.brand }}</h3>
+              <div class="features">
+                <span>
+                  <p>
+                    <b>⛽Fuel:</b> {{ car.fuel_type }}
+                  </p>
+                </span>
+                <span>
+                  <p>
+                    <b>👥 Seats:</b> {{ car.seats }}
+                  </p>
+                </span>
+                <span>
+                  <p>
+                    <b>⚙️ Transmission:</b> {{ car.transmission }}
+                  </p>
+                </span>
+                <span>
+                  <p>
+                    <b>❄️ AC:</b> {{ car.ac|yesno:'Yes,No' }}
+                  </p>
+                </span>
+                <span>
+                  <p>
+                    <b>❄️ Status:</b> {{ car.status }}
+                  </p>
+                </span>
+                <span>
+                  <p>
+                    <b>❄️ gps:</b> {{ car.gps|yesno:'Yes,No' }}
+                  </p>
+                </span>
+                <span>
+                  <p>
+                    <b>❄️ Air Bags:</b> {{ car.airbags|yesno:'Yes,No' }}
+                  </p>
+                </span>
+                <span>
+                  <p>
+                    <b>❄️ Pickup Location:</b> {{ car.pickup_location}}
+                  </p>
+                </span>
+              </div>
+              <div class="car-book">
+                <h4>₹{{ car.rent_per_day }}/day</h4>
+                <a href="{% url 'car_booking' car.id %}"><button class="btn btn-success">Book Now</button></a>
+              </div>
+            </div>
+          </div>
+          {% comment %} <div class="col-md-12 col-sm-12 col-12">
+            <div class="card row">
+              <div class="col-md-6 col-sm-12 col-12">
+                <img src="{{ car.image.url }}" class="card-img-top" width="100%" height="60%" />
+              </div>
 
-          <div class="card-body" style="width: 50%; height: 100%;">
-            <h2>{{car.name}}</h2>
-            <h3>{{car.brand}}</h3>
+              <div class="col-md-6 col-sm-12 col-12 card-body">
+                <h2>{{ car.name }}</h2>
+                <h3>{{ car.brand }}</h3>
 
-            <div class="features">
-              <span><p><b>⛽Fuel:</b> {{car.fuel_type}}</p></span
-              >
-              <span
-                ><p><b>👥 Seats:</b> {{car.seats}}</p></span
-              >
-              <span
-                ><p><b>⚙️ Transmission:</b> {{car.transmission}}</p></span
-              >
-              <span
-                ><p><b>❄️ AC:</b> {{ car.ac|yesno:"Yes,No" }}</p></span
-              >
+                <div class="features">
+                  <span>
+                    <p>
+                      <b>⛽Fuel:</b> {{ car.fuel_type }}
+                    </p>
+                  </span>
+                  <span>
+                    <p>
+                      <b>👥 Seats:</b> {{ car.seats }}
+                    </p>
+                  </span>
+                  <span>
+                    <p>
+                      <b>⚙️ Transmission:</b> {{ car.transmission }}
+                    </p>
+                  </span>
+                  <span>
+                    <p>
+                      <b>❄️ AC:</b> {{ car.ac|yesno:'Yes,No' }}
+                    </p>
+                  </span>
+                </div>
+                <div class="car-book">
+                  <h4>₹{{ car.rent_per_day }}/day</h4>
+                  <button class="btn btn-success">Book Now</button>
+                </div>
+              </div>
             </div>
-            <div class="car-book">
-              <h4>₹{{ car.rent_per_day }}/day</h4>
-              <button class="btn btn-success">
-                Book Now
-              </button>
+          </div> {% endcomment %}
+        </div>
+        <hr>
+        <div class="row mt-5">
+          <div class="col-md-6 col-sm-6 col-12">
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h4>👥 {{ car.seats }} Seats</h4>
             </div>
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h6>❄️ AirConditioning {{ car.ac|yesno:'Yes,No' }}</h6>
+            </div>
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h6>⚙️ Power String: {{ car.power_steering|yesno:'Yes,No' }}</h6>
+            </div>
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h6>⛽Fuel Type : {{ car.fuel_type }}</h6>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-12">
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h6>4 Door: {{ car.doors|yesno:'Yes,No' }}</h6>
+            </div>
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h6>Blutooth: {{ car.bluetooth|yesno:'Yes,No' }}</h6>
+            </div>
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h6>ABS: {{ car.abs|yesno:'Yes,No' }}</h6>
+            </div>
+            <div style="
+            width: 50%;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+          ">
+              <h6>Mileage: {{ car.mileage }} km/l</h6>
+            </div>
+          </div>
+          <div style="border-top: 1px solid black">
+            <h4>About Car</h4>
+            <p>{{ car.description }}</p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-md-6 col-sm-6 col-12">
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h4>👥 {{ car.seats }} Seats</h4>
-        </div>
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h6>❄️ AirConditioning {{ car.ac|yesno:"Yes,No" }}</h6>
-        </div>
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h6>⚙️ Power String: {{ car.power_steering|yesno:"Yes,No" }}</h6>
-        </div>
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h6>⛽Fuel Type : {{ car.fuel_type }}</h6>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-6 col-12">
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h6>4 Door: {{ car.doors|yesno:"Yes,No" }}</h6>
-        </div>
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h6>Blutooth: {{ car.bluetooth|yesno:"Yes,No" }}</h6>
-        </div>
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h6>ABS: {{ car.abs|yesno:"Yes,No" }}</h6>
-        </div>
-        <div
-          style="
-            width: 50%;
-            height: 3rem;
-            background-color: aliceblue;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1rem;
-          "
-        >
-          <h6>Mileage: {{ car.mileage }} km/l</h6>
-        </div>
-      </div>
-      <div style="border-top: 1px solid black">
-        <h4>About Car</h4>
-        <p>
-            {{ car.description }}
-        </p>
-      </div>
-    </div>
-  </div>
-  {% else %}
-    <p>Car not found.</p>
-  {% endif %}
-</section>
-<script src="#"></script>
-{% endblock content %}
+    {% else %}
+      <p>Car not found.</p>
+    {% endif %}
+  </section>
+  <script src="#"></script>
+{% endblock %}

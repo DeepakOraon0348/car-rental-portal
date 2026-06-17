@@ -72,6 +72,16 @@
   .view-btn:active {
     transform: scale(0.95);
   }
+  /* ====================== booking page detail ========================== */
+  .booking-heading{
+      width: 100vw;
+      height: 5rem;
+      background-color: #0b1621;
+      color: aliceblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
 }
 
 @media (max-width: 1440px) {

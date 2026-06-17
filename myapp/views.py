@@ -94,3 +94,5 @@ def view_details(request, car_id):
     }
     print("Car details:", context)
     return render(request, 'view_detail.html', context)
+def car_booking(request, car_id):
+    return render(request, 'book.html')

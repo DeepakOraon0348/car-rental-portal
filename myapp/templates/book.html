@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Car Rental Portal | search
+{% endblock %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/search.css' %}" />
+{% endblock %}
+{% block content %}
+  <section class="container" style="overflow-x: hidden; background-color: #F8FAFC;">
+    <div class="booking-heading">
+      <h3>Booking Detail</h3>
+    </div>
+    <div class="row g-2">
+      <div class="col-md-6 col-sm-12 col-12">
+        <h5>Car Details</h5>
+        <hr />
+        <div class="car_detail">
+          <div>
+            <img src="" alt="" width="100%" />
+          </div>
+          <h6>car namee</h6>
+          <div style="display: flex;">
+            <span><b>Transmission:</b><p>automatic</p></span>
+            <span><b>Transmission:</b><p>automatic</p></span>
+          </div>
+          <div style="display: flex;">
+            <span><b>Transmission:</b><p>automatic</p></span>
+            <span><b>Transmission:</b><p>automatic</p></span>
+          </div>
+          <div style="display: flex;">
+            <span><b>Transmission:</b><p>automatic</p></span>
+            <span><b>Transmission:</b><p>automatic</p></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 col-12">
+        <h5>Booking Details</h5>
+        <hr>
+        <span><b>Pickup Date:</b><p></p></span>
+        <span><b>Pickup Time:</b><p></p></span>
+        <span><b>return Date:</b><p></p></span>
+        <span><b>return Time:</b><p></p></span>
+        <span><b>Pickup Location:</b><p></p></span>
+        <span><b>Pickup Location:</b><p></p></span>
+      </div>
+    </div>
+    <hr>
+    <div class="col-md-12 col-12 oner-information">
+        <h5>DRIVER INFORMATION</h5>
+        <hr>
+        <span><b>Full Name:</b><p></p></span>
+        <span><b>Email:</b><p></p></span>
+        <span><b>Phone Number:</b><p></p></span>
+        <span><b>car_location:</b><p></p></span>
+        <span><b>address:</b><p></p></span>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6 col-sm-12 col-12" style="background-color: #FFFFFF;">
+            <h5>PAYMENT METHOD</h5>
+            <hr>
+            <p><input type="radio" name="payment">Pay Now</p>
+            <p><input type="radio" name="payment">Pay at Pickup</p>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12" style="background-color: #FFFFFF;">
+            <h5>BOOKING SUMMARY</h5>
+            <hr>
+            <label for=""><span><b>Rent/Day</b>2000/-</span>
+                <br>
+            <span><b>Total Days</b>2000/-</span>
+            <br>
+            <span><b>Subtotal</b>2000/-</span>
+            <br>
+            <span><b>Tax</b>2000/-</span>
+            <br>
+            <span><b>Deposit</b>2000/-</span>
+            <hr>
+            <span><b>Total:</b>8500/-</span>
+        </div>
+        <hr>
+        <p><input type="checkbox"><i>I agree to terms & Conditions</i></p>
+        <button type="submit" style="background-color: violet; border-radius: 20px;">Confirm Booking</button>
+    </div>
+    <hr>
+  </section>
+{% endblock %}

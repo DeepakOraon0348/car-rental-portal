@@ -15,6 +15,7 @@ urlpatterns=[
     path('/akash', akash, name='akash'),
     path('logout/', logout_view, name='logout'),
     path('view_details/<int:car_id>/', view_details, name='view_details'),
+    path('booking/<int:car_id>/',car_booking, name='car_booking'),
 ]
 
 if settings.DEBUG:

@@ -96,7 +96,12 @@ class Car(models.Model):
         blank=True,
         null=True
     )
+    car_number=models.CharField(max_length=20, null=True, blank=True),
 
+    driver_name=models.CharField(max_length=225, blank=True, null=True),
+    driver_license_number=models.IntegerField(max_length=20, blank=True, null=True),
+    driver_license_expiry=models.DateField(max_length=20, null=True, blank=True),
+    driver_age=models.IntegerField(max_length=20, blank=True, null=True),
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
