@@ -255,6 +255,32 @@
           </div>
           
           <div id="car-cards" class="row mt-4">
+            {% for car in cars %}
+              <div class="col-md-4 col-sm-6 col-12 mb-4">
+    <a href="{% url 'view_details' car.id %}" style="text-decoration: none;">
+        <div class="card h-100">
+            <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}">
+            
+            <div class="card-body">
+                <h5 class="card-title">{{ car.brand }} {{ car.car_name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ car.brand }}</h6>
+
+                <div class="features">
+                    <span >⛽  {{ car.fuel_type}}</span>
+                    <span>👥 {{ car.seats }} Seats</span>
+                    <span>⚙️ {{ car.transmission }}</span>
+                    <span>❄️ {{ car.ac|yesno:"AC,Non-AC" }}</span>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px;">
+                    <div>₹{{car.rent_per_day}}/day</div>
+                    <button class="btn btn-primary view-btn"><a href="{% url 'view_details' car.id %}" style="text-decoration: none; color: white;">View Detail</a></button>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -341,7 +367,7 @@
    
 {% endfor %} {% endcomment %}
 
-<script>
+{% comment %} <script>
     window.cars = [
         {% for car in cars %}
         {
@@ -357,6 +383,6 @@
         },
         {% endfor %}
     ];
-</script>
-<script src="{% static 'js/search.js' %}"></script>
+</script> {% endcomment %}
+{% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
 {% endblock content%}

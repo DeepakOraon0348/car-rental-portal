@@ -172,7 +172,8 @@ function viewDetails(id) {
 cars.forEach(car => {
     const card = `
     <div class="col-md-4 col-sm-6 col-12 mb-4">
-        <div class="card h-100" onclick="viewDetails(${car.id})">
+    <a href="{% url 'view_details' car.id %}">
+        <div class="card h-100">
             <img src="${car.image}" class="card-img-top" alt="${car.name}">
             
             <div class="card-body">
@@ -188,10 +189,11 @@ cars.forEach(car => {
 
                 <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px;">
                     <div>₹${car.price}/day</div>
-                    <button class="btn btn-primary view-btn" onclick="viewDetails(${car.id})"><a>View Detail</a></button>
+                    <button class="btn btn-primary view-btn"><a>View Detail</a></button>
                 </div>
             </div>
         </div>
+        </a>
     </div>
     `;
 

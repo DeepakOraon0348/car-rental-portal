@@ -9,14 +9,14 @@
       Dashboard
     </li>
     <li class="add-car">
-      <a href="{% url 'add-car' %}" style="text-decoration: none;">
+      <a href="{% url 'add-car' %}" style="text-decoration: none; color: inherit;">
         <i class="fa-solid fa-plus"></i>
         Add Car
       </a>
     </li>
 
     <li>
-    <a href="#" style="text-decoration: none;">
+    <a href="#" style="text-decoration: none; color: inherit;">
       <i class="fa-solid fa-car"></i>
       My Cars
     </a>
@@ -37,7 +37,7 @@
     </li>
 
     <li>
-      <form method="POST" action="{% url 'logout_1' %}">
+      <form method="POST" action="{% url 'logout_1' %}" style="margin: 0; padding: 0;">
         {% csrf_token %}
         <button type="submit">
           <i class="fa-solid fa-right-from-bracket"></i>

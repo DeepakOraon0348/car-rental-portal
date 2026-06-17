@@ -75,11 +75,10 @@ def vendor_profile(request):
 
     print("Current Vendor ID:", vendor.id)
     print("Current Vendor:", vendor)
-
-    print("All Cars:", Car.objects.all())
-
+    
+    cars_count= Car.objects.filter(vendor=vendor).count()
     cars = Car.objects.filter(vendor=vendor)
-    return render(request, 'vendorProfile.html' , {'vendor': vendor, 'cars': cars})
+    return render(request, 'vendorProfile.html' , {'vendor': vendor, 'cars': cars, 'cars_count': cars_count})
 
 def logout_view_1(request):
     request.session.flush()

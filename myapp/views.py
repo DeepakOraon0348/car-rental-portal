@@ -12,13 +12,14 @@ def index(request):
 
 def search(request):
     cars = Car.objects.all()
+    print(cars)
     context = {
         'cars': cars
     }
     return render(request, 'search.html', context)
 
-def CarDetail(request):
-    return render(request, 'car-detail.html')
+# def CarDetail(request):
+#     return render(request, 'car-detail.html')
 
 @csrf_exempt
 def signup(request):
@@ -85,3 +86,11 @@ def profile(request):
     return render(request, 'profile.html')
 def akash(request):
     return render(request, 'akash.html')
+
+def view_details(request, car_id):
+    car = Car.objects.filter(id=car_id).first()  # Use .first() to get the actual object
+    context = {
+        'car': car
+    }
+    print("Car details:", context)
+    return render(request, 'view_detail.html', context)

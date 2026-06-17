@@ -8,12 +8,13 @@ from .views import *
 urlpatterns=[
     path('', index, name='index'),
     path('/search',search, name='search'),
-    path('car-detail/', CarDetail, name='car-detail'),
+    # path('car-detail/', CarDetail, name='car-detail'),
     path('signup/', signup, name='signup'),
     path('login/', login_view, name='login'),
     path('/profile', profile , name='profile'),
     path('/akash', akash, name='akash'),
-    path('logout/', logout_view, name='logout')
+    path('logout/', logout_view, name='logout'),
+    path('view_details/<int:car_id>/', view_details, name='view_details'),
 ]
 
 if settings.DEBUG:

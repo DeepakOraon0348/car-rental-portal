@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% load static %} {% block title %}Car Rental Portal |
-car-detail{% endblock title %}
-{% block css %}<link rel="stylesheet" href="{% static 'css/car-detail.css' %}" />{% endblock css %}
-{% block content %}
+car-detail{% endblock title %} {% block css %}<link
+  rel="stylesheet"
+  href="{% static 'css/car-detail.css' %}"
+/>{% endblock css %} {% block content %}
 <section class="topbar">
   <div class="container">
     <div class="row">
@@ -64,7 +65,9 @@ car-detail{% endblock title %}
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link logg" aria-disabled="" href="{% url 'login'%}">Login</a>
+          <a class="nav-link logg" aria-disabled="" href="{% url 'login'%}"
+            >Login</a
+          >
         </li>
       </ul>
       <div class="input-sec">
@@ -89,9 +92,9 @@ car-detail{% endblock title %}
             <div class="log-in-sec">
               <a href="login.html"><i class="fa-solid fa-circle-user"></i></a>
               {% if user.is_authenticated %}
-                <span>Welcome, {{ user.username }}!</span>
+              <span>Welcome, {{ user.username }}!</span>
               {% else %}
-                <span><a href="{% url 'login' %}">Login</a></span>
+              <span><a href="{% url 'login' %}">Login</a></span>
               {% endif %}
             </div>
           </div>
@@ -102,8 +105,41 @@ car-detail{% endblock title %}
 </header>
 <!--================ car detail-section============= -->
 <section class="car-detail">
+{% if car %}
   <div class="container">
-    <div id="car-detail"></div>
+    {% comment %} ==============detail view section=============== {% endcomment %}
+    <div id="car-detail">
+      <div class="col-md-12 col-sm-12 col-12">
+        <div class="card" style="width: 100%; height: 100vh !important; display: flex !important;">
+          <div style="width: 50%;"><img src="{{ car.image.url }}" class="card-img-top" width="100%" height="60%" /></div>
+
+          <div class="card-body" style="width: 50%; height: 100%;">
+            <h2>{{car.name}}</h2>
+            <h3>{{car.brand}}</h3>
+
+            <div class="features">
+              <span><p><b>⛽Fuel:</b> {{car.fuel_type}}</p></span
+              >
+              <span
+                ><p><b>👥 Seats:</b> {{car.seats}}</p></span
+              >
+              <span
+                ><p><b>⚙️ Transmission:</b> {{car.transmission}}</p></span
+              >
+              <span
+                ><p><b>❄️ AC:</b> {{ car.ac|yesno:"Yes,No" }}</p></span
+              >
+            </div>
+            <div class="car-book">
+              <h4>₹{{ car.rent_per_day }}/day</h4>
+              <button class="btn btn-success">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row mt-5">
       <div class="col-md-6 col-sm-6 col-12">
         <div
@@ -118,7 +154,7 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h4>👥 5 Seats</h4>
+          <h4>👥 {{ car.seats }} Seats</h4>
         </div>
         <div
           style="
@@ -132,7 +168,7 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h6>❄️ AirConditioning</h6>
+          <h6>❄️ AirConditioning {{ car.ac|yesno:"Yes,No" }}</h6>
         </div>
         <div
           style="
@@ -146,7 +182,7 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h6>⚙️ Power String</h6>
+          <h6>⚙️ Power String: {{ car.power_steering|yesno:"Yes,No" }}</h6>
         </div>
         <div
           style="
@@ -160,7 +196,7 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h6>⛽Fuel Type :Petorl</h6>
+          <h6>⛽Fuel Type : {{ car.fuel_type }}</h6>
         </div>
       </div>
       <div class="col-md-6 col-sm-6 col-12">
@@ -176,7 +212,7 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h6>4 Door</h6>
+          <h6>4 Door: {{ car.doors|yesno:"Yes,No" }}</h6>
         </div>
         <div
           style="
@@ -190,7 +226,7 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h6>Blutooth</h6>
+          <h6>Blutooth: {{ car.bluetooth|yesno:"Yes,No" }}</h6>
         </div>
         <div
           style="
@@ -204,7 +240,7 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h6>ABS</h6>
+          <h6>ABS: {{ car.abs|yesno:"Yes,No" }}</h6>
         </div>
         <div
           style="
@@ -218,22 +254,20 @@ car-detail{% endblock title %}
             margin-bottom: 1rem;
           "
         >
-          <h6>Mileage: 10km/l</h6>
+          <h6>Mileage: {{ car.mileage }} km/l</h6>
         </div>
       </div>
       <div style="border-top: 1px solid black">
         <h4>About Car</h4>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-          odit ab! Nostrum consequatur debitis, ratione qui odio dolore
-          voluptatem iure! Blanditiis aspernatur tempora quo modi? Itaque neque
-          minima culpa debitis ducimus fuga, necessitatibus ratione odio,
-          cupiditate accusantium provident? Esse facere aperiam aliquam repellat
-          id debitis eos voluptatum fugiat tempora temporibus.
+            {{ car.description }}
         </p>
       </div>
     </div>
   </div>
+  {% else %}
+    <p>Car not found.</p>
+  {% endif %}
 </section>
-<script src="{% static 'js/car-detail.js' %}"></script>
+<script src="#"></script>
 {% endblock content %}
