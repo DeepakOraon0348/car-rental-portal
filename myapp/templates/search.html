@@ -110,6 +110,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2 col-sm-2">
+      <form action="{% url 'search' %}" method="GET">
+
         <div class="filter-sec">
           <div
             class="filter-sec-1"
@@ -129,7 +131,7 @@
           <div class="m-2">
             <p style="margin-bottom: 0px"><b>Pick-up Location</b></p>
             <select
-              name="location"
+              name="pickup_location"
               id=""
               style="
                 padding: 5px;
@@ -138,54 +140,52 @@
                 border-radius: 10px;
               "
             >
+              <option value="">All</option>
               <option value="Ranchi">Ranchi</option>
-              <option value="Ranchi">Jamshedpur</option>
-              <option value="Ranchi">Seraikella</option>
-              <option value="Ranchi">Chaibasa</option>
-              <option value="Ranchi">Aditypur</option>
-              <option value="Ranchi">kharswan</option>
+              <option value="Jamshedpur">Jamshedpur</option>
+              <option value="Seraikella">Seraikella</option>
+              <option value="Chaibasa">Chaibasa</option>
+              <option value="Aditypur">Aditypur</option>
+              <option value="Kharswan">kharswan</option>
             </select>
           </div>
           <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Drop-off Location</b></p>
-            <select
-              name="location"
-              id=""
-              style="
+            <p style="margin-bottom: 0px"><b>Seats</b></p>
+            <input type="text" name="seats" style="
                 padding: 5px;
                 line-height: 5px;
-                width: 100%;
+                width: 170px;
                 border-radius: 10px;
-              "
-            >
-              <option value="Ranchi">Ranchi</option>
-              <option value="Ranchi">Jamshedpur</option>
-              <option value="Ranchi">Seraikella</option>
-              <option value="Ranchi">Chaibasa</option>
-              <option value="Ranchi">Aditypur</option>
-              <option value="Ranchi">kharswan</option>
+              ">
+          </div>
+          <div class="m-2">
+            <p style="margin-bottom: 0px"><b>Fuel Type</b></p>
+            <select name="fuel_type" style="
+                padding: 5px;
+                line-height: 5px;
+                width: 170px;
+                border-radius: 10px;
+              ">
+              <option value="">All Fuel Types</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="CNG">CNG</option>
+              <option value="Electric">Electric</option>
             </select>
           </div>
           <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Pick-up Date</b></p>
-            <input
-              type="date"
-              placeholder="26-April-2026"
-              style="width: 100%; padding: 5px; border-radius: 10px"
-            />
-          </div>
-          <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Drop-off Date</b></p>
-            <input
-              type="date"
-              placeholder="26-April-2026"
-              style="width: 100%; padding: 5px; border-radius: 10px"
-            />
+            <p style="margin-bottom: 0px"><b>Transmission</b></p>
+            <select name="transmission">
+              <option value="">All</option>
+              <option value="Manual">Manual</option>
+              <option value="Automatic">Automatic</option>
+            </select>
           </div>
           <div class="m-2">
             <p style="margin-bottom: 0px"><b>Car Type</b></p>
             <select
-              name="location"
+              name="car_type"
               id=""
               style="
                 padding: 5px;
@@ -194,18 +194,25 @@
                 border-radius: 10px;
               "
             >
-              <option value="Ranchi">Maruti Swift</option>
-              <option value="Ranchi">Honda City</option>
-              <option value="Ranchi">Hyundai creta</option>
-              <option value="Ranchi">Toyota Fortuner</option>
-              <option value="Ranchi">Suzuki Eartika</option>
-              <option value="Ranchi">Tata nexon</option>
+              <option value="">All</option>
+              <option value="Maruti Swift">Maruti Swift</option>
+              <option value="Honda City">Honda City</option>
+              <option value="Hyundai Creta">Hyundai creta</option>
+              <option value="Toyota Fortuner">Toyota Fortuner</option>
+              <option value="Suzuki Eartika">Suzuki Eartika</option>
+              <option value="Tata nexon">Tata nexon</option>
             </select>
           </div>
           <div class="m-2">
-            <p><b>Price Range</b></p>
-            <p><b>₹1000 - ₹1000</b></p>
-            <input type="range" />
+            <div>
+              <label>Min Price:</label>
+              <input type="number" name="min_price" style="width: 90px !important;">
+            </div>
+
+            <div style="margin-top: 10px;">
+              <label>Max Price:</label>
+              <input type="number" name="max_price" style="width: 90px !important;">
+            </div>
           </div>
           <div class="m-2">
             <button
@@ -217,11 +224,13 @@
                 color: white;
                 padding: 5px;
               "
+              type="submit"
             >
               Apply Filter
             </button>
           </div>
         </div>
+      </form>
       </div>
       <div class="col-md-10 col-sm-10 col-12">
         <div class="row mt-4">
@@ -274,7 +283,7 @@
 
                 <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px;">
                     <div>₹{{car.rent_per_day}}/day</div>
-                    <button class="btn btn-primary view-btn"><a href="{% url 'view_details' car.id %}" style="text-decoration: none; color: white;">View Detail</a></button>
+                    <a href="{% url 'view_details' car.id %}" style="text-decoration: none; color: white;"><button class="btn btn-primary view-btn">View Detail</button></a>
                 </div>
             </div>
         </div>

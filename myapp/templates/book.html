@@ -7,32 +7,40 @@
   <link rel="stylesheet" href="{% static 'css/search.css' %}" />
 {% endblock %}
 {% block content %}
-  <section class="container" style="overflow-x: hidden; background-color: #F8FAFC;">
+  <section class="container" style="overflow-x: hidden; background-color: aqua">
     <div class="booking-heading">
       <h3>Booking Detail</h3>
     </div>
     <div class="row g-2">
       <div class="col-md-6 col-sm-12 col-12">
-        <h5>Car Details</h5>
+        <h2>Car Details</h2>
         <hr />
+        {% if car %}
         <div class="car_detail">
-          <div>
-            <img src="" alt="" width="100%" />
+          <div style="width: 100%; height: 40vh; display: flex; justify-content: center;">
+            <img src="{{ car.image.url }}" alt="" width="40%" height="100%" />
           </div>
-          <h6>car namee</h6>
+          <h3>{{car.car_name}}</h3>
           <div style="display: flex;">
-            <span><b>Transmission:</b><p>automatic</p></span>
-            <span><b>Transmission:</b><p>automatic</p></span>
-          </div>
-          <div style="display: flex;">
-            <span><b>Transmission:</b><p>automatic</p></span>
-            <span><b>Transmission:</b><p>automatic</p></span>
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>Brand:  </b>{{car.brand }}</p>
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>Model Number:  </b>{{car.model}}</p>
           </div>
           <div style="display: flex;">
-            <span><b>Transmission:</b><p>automatic</p></span>
-            <span><b>Transmission:</b><p>automatic</p></span>
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>status:  </b>{{car.status}}</p>
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>car_number:  </b>{{car.car_number}}</p>
+          </div>
+          <div style="display: flex;">
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>pickup_location:  </b>{{car.pickup_location}}</p>
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>year:  </b>{{car.year}}</p>
+          </div>
+          <div style="display: flex;">
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>seats:  </b>{{car.seats}}</p>
+            <p style="background-color: white; margin-left: 10px; padding: 10px;"><b>mileage:  </b>{{car.mileage}}</p>
           </div>
         </div>
+        {% else %}
+        <p>This car not Available!</p>
+        {% endif %}
       </div>
       <div class="col-md-6 col-sm-12 col-12">
         <h5>Booking Details</h5>

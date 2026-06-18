@@ -107,11 +107,13 @@
                     </div>
                 </div>
                 <div class="city-search">
+                    <form action="{% url 'search' %}" method="GET">
+                     {% csrf_token %}
                     <div class="row g-2">
                         <div class="col-md-3 col-sm-3 col-12">
                             <div class="input-sec-1">
                                 <p><b>pick-up Location</b></p>
-                                <input type="text" placeholder="select-location" style="padding: 5px; font-size: 16px;">
+                                <input type="text" name="pickup_location" placeholder="select-location" style="padding: 5px; font-size: 16px;">
                             </div>
                         </div>
                         <div class="col-md-2 col-sm-2 col-12">
@@ -129,23 +131,23 @@
                         <div class="col-md-3 col-sm-2 col-12">
                             <div class="input-sec-1">
                                 <p><b>Car type</b></p>
-                                <select name="city" id="" class="selction-box">
-                                    <option value="All type">All Types</option>
-                                    <option value="All type">Maruti Swift</option>
-                                    <option value="All type">Honda City</option>
-                                    <option value="All type">Hyundai Creta</option>
-                                    <option value="All type">Toyota Fortuner</option>
+                                <select name="car_type" id="" class="selction-box">
+                                    <option value="">All Types</option>
+                                    <option value="Maruti Swift">Maruti Swift</option>
+                                    <option value="Honda City">Honda City</option>
+                                    <option value="Hyundai Creta">Hyundai Creta</option>
+                                    <option value="Toyota Fortuner">Toyota Fortuner</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-2 col-sm-3 col-12">
                             <div class="input-sec-1" style="padding-top: 1.5rem;">
                                 <p><b></b></p>
-                                <button class="searching-btn"><a href="{% url 'search'%}"
-                                        style="text-decoration: none; color: white;">Search cars</a></button>
+                                <button class="searching-btn" type="submit">Search cars</button>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

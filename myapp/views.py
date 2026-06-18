@@ -12,10 +12,52 @@ def index(request):
 
 def search(request):
     cars = Car.objects.all()
-    print(cars)
+
+    pickup_location = request.GET.get('pickup_location')
+    car_type = request.GET.get('car_type')
+    fuel_type = request.GET.get('fuel_type')
+    transmission = request.GET.get('transmission')
+    seats = request.GET.get('seats')
+    min_price=request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+
+    if pickup_location:
+        cars = cars.filter(
+            pickup_location__icontains=pickup_location
+        )
+
+    if car_type:
+        cars = cars.filter(
+            car_name=car_type
+        )
+
+    if fuel_type:
+        cars = cars.filter(
+            fuel_type=fuel_type
+        )
+
+    if transmission:
+        cars = cars.filter(
+            transmission=transmission
+        )
+    if seats:
+        cars = cars.filter(
+            seats=seats
+        )
+
+    if max_price:
+        cars = cars.filter(
+            rent_per_day__lte=max_price
+        )
+    if max_price:
+        cars = cars.filter(
+            rent_per_day__gte=min_price
+        )
+      
     context = {
         'cars': cars
     }
+
     return render(request, 'search.html', context)
 
 # def CarDetail(request):
@@ -95,4 +137,8 @@ def view_details(request, car_id):
     print("Car details:", context)
     return render(request, 'view_detail.html', context)
 def car_booking(request, car_id):
-    return render(request, 'book.html')
+    car = Car.objects.filter(id=car_id).first()  # Use .first() to get the actual object
+    context = {
+        'car': car
+    }
+    return render(request, 'book.html', context)
