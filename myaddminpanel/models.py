@@ -15,6 +15,19 @@ class VendorLogin(models.Model):
     
     # vendor=models.ForeignKey(VendorLogin,on_delete=models.CASCADE/SET_NULL,related_name='vendor')
 
+class Driver(models.Model):
+    driver_name = models.CharField(max_length=225)
+    driver_license_number = models.CharField(max_length=50)
+    driver_license_expiry = models.DateField()
+    driver_age = models.PositiveIntegerField()
+    driver_ph_no = models.CharField(max_length=15)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.driver_name
+    
+    
 class Car(models.Model):
 
     TRANSMISSION_CHOICES = [
@@ -96,13 +109,15 @@ class Car(models.Model):
         blank=True,
         null=True
     )
-    car_number=models.CharField(max_length=20, null=True, blank=True),
-
-    driver_name=models.CharField(max_length=225, blank=True, null=True),
-    driver_license_number=models.IntegerField(max_length=20, blank=True, null=True),
-    driver_license_expiry=models.DateField(max_length=20, null=True, blank=True),
-    driver_age=models.IntegerField(max_length=20, blank=True, null=True),
+    driver = models.ForeignKey(
+        Driver,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.brand} {self.model}"
+    
+    

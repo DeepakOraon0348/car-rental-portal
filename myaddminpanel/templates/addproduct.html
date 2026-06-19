@@ -61,6 +61,61 @@
       <option value="Booked">Booked</option>
       <option value="Maintenance">Maintenance</option>
     </select>
+    {% comment %} ===============driver information area================ {% endcomment %}
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Car Number</label>
+            <input
+                type="text"
+                name="car_number"
+                class="form-control"
+                placeholder="JH01AB1234">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label>Driver Name</label>
+            <input
+                type="text"
+                name="driver_name"
+                class="form-control"
+                placeholder="Enter Driver Name">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label>License Number</label>
+            <input
+                type="text"
+                name="driver_license_number"
+                class="form-control"
+                placeholder="DL-0420110149646">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label>License Expiry</label>
+            <input
+                type="text"
+                name="driver_license_expiry"
+                class="form-control">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label>Driver Age</label>
+            <input
+                type="number"
+                name="driver_age"
+                class="form-control"
+                placeholder="Age">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label>Phone Number</label>
+            <input
+                type="tel"
+                name="driver_ph_no"
+                class="form-control"
+                placeholder="+91 9876543210">
+        </div>
+    </div>
 
     <textarea name="description" rows="5" placeholder="Description"></textarea>
 

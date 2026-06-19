@@ -126,7 +126,14 @@ def add_car(request):
 
             description=request.POST.get('description'),
 
-            image=request.FILES.get('image')
+            image=request.FILES.get('image'),
+            car_number=request.POST.get('car_number'),
+            driver_name=request.POST.get('driver_name'),
+            driver_license_number=request.POST.get('driver_license_number'),
+            driver_license_expiry=request.POST.get('driver_license_expiry'),
+            driver_age=request.POST.get('driver_age'),
+            driver_ph_no=request.POST.get('driver_ph_no'),
+            
         )
 
         car.save()

@@ -8,8 +8,8 @@
 {% endblock %}
 {% block content %}
   <section class="container" style="overflow-x: hidden; background-color: aqua">
-    <div class="booking-heading">
-      <h3>Booking Detail</h3>
+    <div class="car-heading">
+      <h3>car Detail</h3>
     </div>
     <div class="row g-2">
       <div class="col-md-6 col-sm-12 col-12">
@@ -43,7 +43,7 @@
         {% endif %}
       </div>
       <div class="col-md-6 col-sm-12 col-12">
-        <h5>Booking Details</h5>
+        <h5>car Details</h5>
         <hr>
         <span><b>Pickup Date:</b><p></p></span>
         <span><b>Pickup Time:</b><p></p></span>
@@ -55,13 +55,38 @@
     </div>
     <hr>
     <div class="col-md-12 col-12 oner-information">
+        {% if car %}
         <h5>DRIVER INFORMATION</h5>
         <hr>
-        <span><b>Full Name:</b><p></p></span>
-        <span><b>Email:</b><p></p></span>
-        <span><b>Phone Number:</b><p></p></span>
-        <span><b>car_location:</b><p></p></span>
-        <span><b>address:</b><p></p></span>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Full Name</th>
+                        <td>{{ car.driver_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ car.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Phone Number</th>
+                        <td>{{ car.driver_ph_no }}</td>
+                    </tr>
+                    <tr>
+                        <th>Car Location</th>
+                        <td>{{ car. city }}</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{ car.pickup_location }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p>Driver Information not Available!</p>
+        {% endif %}
     </div>
     <hr>
     <div class="row">
@@ -72,7 +97,7 @@
             <p><input type="radio" name="payment">Pay at Pickup</p>
         </div>
         <div class="col-md-6 col-sm-12 col-12" style="background-color: #FFFFFF;">
-            <h5>BOOKING SUMMARY</h5>
+            <h5>car SUMMARY</h5>
             <hr>
             <label for=""><span><b>Rent/Day</b>2000/-</span>
                 <br>
@@ -88,7 +113,7 @@
         </div>
         <hr>
         <p><input type="checkbox"><i>I agree to terms & Conditions</i></p>
-        <button type="submit" style="background-color: violet; border-radius: 20px;">Confirm Booking</button>
+        <button type="submit" style="background-color: violet; border-radius: 20px;">Confirm car</button>
     </div>
     <hr>
   </section>
