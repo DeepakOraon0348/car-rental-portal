@@ -16,6 +16,11 @@ class VendorLogin(models.Model):
     # vendor=models.ForeignKey(VendorLogin,on_delete=models.CASCADE/SET_NULL,related_name='vendor')
 
 class Driver(models.Model):
+    vendor = models.ForeignKey(
+        VendorLogin,
+        on_delete=models.CASCADE,
+        related_name='drivers'
+    )
     driver_name = models.CharField(max_length=225)
     driver_license_number = models.CharField(max_length=50)
     driver_license_expiry = models.DateField()
@@ -112,7 +117,7 @@ class Car(models.Model):
     driver = models.ForeignKey(
         Driver,
         on_delete=models.SET_NULL,
-        null=True,
+        null=True, 
         blank=True
     )
     created_at = models.DateTimeField(auto_now_add=True)

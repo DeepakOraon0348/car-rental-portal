@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -137,8 +137,23 @@ def view_details(request, car_id):
     print("Car details:", context)
     return render(request, 'view_detail.html', context)
 def car_booking(request, car_id):
-    car = Car.objects.filter(id=car_id).first()  # Use .first() to get the actual object
+    # car = Car.objects.filter(id=car_id).first()  # Use .first() to get the actual object
+    # car = get_object_or_404(
+    #     Car.objects.select_related(
+    #         'driver',
+    #         'vendor'
+    #     ),
+    #     id=car_id
+    # )
+    # context = {
+    #     'car': car
+    # }
+    # print("Car:", car.car_name)
+    # print("Driver:", car.driver)cars = Car.objects.all()
+    cars=Driver.objects.all()
+    print(cars)
     context = {
-        'car': car
-    }
+        'car': cars
+    }  
+    
     return render(request, 'book.html', context)

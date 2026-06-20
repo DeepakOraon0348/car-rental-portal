@@ -439,3 +439,69 @@ td button{
         grid-template-columns: 1fr;
     }
 }
+/* ================css for add_Driver section ========================= */
+.container-1{
+    display:flex;
+    min-height:100vh;
+}
+
+.main-content{
+    flex:1;
+    padding:30px;
+    background:#f8f9fa;
+}
+
+.page-header{
+    margin-bottom:30px;
+}
+
+.page-header h2{
+    margin-bottom:5px;
+}
+
+.driver-form{
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.driver-form label{
+    font-weight:600;
+    margin-bottom:8px;
+    display:block;
+}
+
+.form-control{
+    height:50px;
+}
+
+.form-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:20px;
+}
+
+@media(max-width:768px){
+
+    .container-1{
+        flex-direction:column;
+    }
+
+    .main-content{
+        padding:15px;
+    }
+
+    .driver-form{
+        padding:20px;
+    }
+
+    .form-buttons{
+        flex-direction:column;
+    }
+
+    .form-buttons button{
+        width:100%;
+    }
+}

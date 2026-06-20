@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="{% static 'css/search.css' %}" />
 {% endblock %}
 {% block content %}
-  <section class="container" style="overflow-x: hidden; background-color: aqua">
-    <div class="car-heading">
+  <section class="container p-0" style="overflow-x: hidden; background-color: aqua">
+    <div class="car-heading" style="width: 100%; padding: 0; margin: 0; display: flex; justify-content: center; background-color: aquamarine;">
       <h3>car Detail</h3>
     </div>
+    <hr>
     <div class="row g-2">
       <div class="col-md-6 col-sm-12 col-12">
-        <h2>Car Details</h2>
+        <h5 style="margin-left: 20px;">Car Details</h5>
         <hr />
         {% if car %}
         <div class="car_detail">
@@ -43,7 +44,7 @@
         {% endif %}
       </div>
       <div class="col-md-6 col-sm-12 col-12">
-        <h5>car Details</h5>
+        <h5  style="margin-left: 20px;">car Details</h5>
         <hr>
         <span><b>Pickup Date:</b><p></p></span>
         <span><b>Pickup Time:</b><p></p></span>
@@ -55,7 +56,7 @@
     </div>
     <hr>
     <div class="col-md-12 col-12 oner-information">
-        {% if car %}
+        {% if car.driver %}
         <h5>DRIVER INFORMATION</h5>
         <hr>
         <div class="table-responsive">
@@ -63,19 +64,19 @@
                 <tbody>
                     <tr>
                         <th>Full Name</th>
-                        <td>{{ car.driver_name }}</td>
+                        <td>{{ car.driver.driver_name }}</td>
                     </tr>
                     <tr>
-                        <th>Email</th>
-                        <td>{{ car.email }}</td>
+                        <th>Driver Lincense Number:</th>
+                        <td>{{ car.driver.driver_license_number }}</td>
                     </tr>
                     <tr>
                         <th>Phone Number</th>
-                        <td>{{ car.driver_ph_no }}</td>
+                        <td>{{ car.driver.driver_ph_no }}</td>
                     </tr>
                     <tr>
                         <th>Car Location</th>
-                        <td>{{ car. city }}</td>
+                        <td>{{ car.city }}</td>
                     </tr>
                     <tr>
                         <th>Address</th>

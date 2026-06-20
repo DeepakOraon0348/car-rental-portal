@@ -3,8 +3,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
-
-
 from myaddminpanel.models import *
 
 # Create your views here.   
@@ -91,14 +89,26 @@ def add_car(request):
 
     if not vendor_id:
         return redirect('login_1')
+    
+    vendor = VendorLogin.objects.get(id=vendor_id)
+
+    drivers = Driver.objects.filter(
+        vendor_id=vendor_id
+    )
 
     if request.method == 'POST':
 
         vendor = VendorLogin.objects.get(id=vendor_id)
+        
+        driver_id = request.POST.get('driver')
+        driver = None
 
+        if driver_id:
+            driver = Driver.objects.get(id=driver_id)
+            
         car = Car(
             vendor=vendor,
-
+            driver=driver,
             car_name=request.POST.get('car_name'),
             brand=request.POST.get('brand'),
             model=request.POST.get('model'),
@@ -127,15 +137,8 @@ def add_car(request):
             description=request.POST.get('description'),
 
             image=request.FILES.get('image'),
-            car_number=request.POST.get('car_number'),
-            driver_name=request.POST.get('driver_name'),
-            driver_license_number=request.POST.get('driver_license_number'),
-            driver_license_expiry=request.POST.get('driver_license_expiry'),
-            driver_age=request.POST.get('driver_age'),
-            driver_ph_no=request.POST.get('driver_ph_no'),
-            
         )
-
+ 
         car.save()
 
         print("Car Added Successfully")
@@ -143,28 +146,24 @@ def add_car(request):
         return redirect('vendor-profile')
     return render(request, 'addproduct.html')
 
-# data fetching from database
-# def view_cars(request):
-#     print("VIEW CARS FUNCTION CALLED")
-#     vendor_id = request.session.get('vendor_id')
+def add_driver(request):
+   vendor_id = request.session.get('vendor_id')
 
-#     print("Session Vendor ID:", vendor_id)
+   if not vendor_id:
+        return redirect('login_1')
 
-#     if not vendor_id:
-#         return redirect('login_1')
+   vendor = VendorLogin.objects.get(id=vendor_id)
+   
+   if request.method == "POST":
+        Driver.objects.create(
+            vendor=vendor,
+            driver_name=request.POST.get("driver_name"),
+            driver_license_number=request.POST.get("driver_license_number"),
+            driver_license_expiry=request.POST.get("driver_license_expiry"),
+            driver_age=request.POST.get("driver_age"),
+            driver_ph_no=request.POST.get("driver_ph_no")
+        )
 
-#     vendor = VendorLogin.objects.get(id=vendor_id)
+        return redirect("add-car")
 
-#     print("Current Vendor ID:", vendor.id)
-#     print("Current Vendor:", vendor)
-
-#     print("All Cars:", Car.objects.all())
-
-#     cars = Car.objects.filter(vendor=vendor)
-
-#     print("Cars Count:", cars.count())
-
-#     return redirect('vendor-profile', {'cars': cars})
-
-# ===================== fetching all cars to search bar =====================
-
+   return render(request, "driverInfo.html")

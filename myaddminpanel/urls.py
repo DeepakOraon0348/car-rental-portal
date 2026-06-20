@@ -9,5 +9,6 @@ urlpatterns=[
      path('add-car/', add_car, name='add-car'),
     #  path('view-cars/', view_cars, name='view-cars'),
     path('vendor-profile/', vendor_profile, name='vendor-profile'),
-    path('logout/', logout_view_1, name='logout_1')
+    path('logout/', logout_view_1, name='logout_1'),
+    path('add_driver/', add_driver, name='add_driver'),
 ]

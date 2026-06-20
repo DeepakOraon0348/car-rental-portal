@@ -1,0 +1,60 @@
+{% extends 'base_1.html' %}
+{% load static %}
+{% block title %}
+  Add Driver info
+{% endblock %}
+{% block css %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+{% endblock %}
+{% block content %}
+  <section class="add-driver">
+    <div class="container-1">
+      {% include 'sidebar.html' %}
+
+      <div class="main-content">
+        <div class="page-header">
+          <h2>Add Driver</h2>
+          <p>Enter driver information below.</p>
+        </div>
+
+        <form method="POST" class="driver-form">
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-12 mb-4">
+              <label>Driver Name</label>
+              <input type="text" name="driver_name" class="form-control" placeholder="Enter Driver Name" />
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12 mb-4">
+              <label>Phone Number</label>
+              <input type="tel" name="driver_ph_no" class="form-control" placeholder="9876543210" />
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12 mb-4">
+              <label>Driving License Number</label>
+              <input type="text" name="driver_license_number" class="form-control" placeholder="DL-0420110149646" />
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12 mb-4">
+              <label>License Expiry Date</label>
+              <input type="date" name="driver_license_expiry" class="form-control" />
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12 mb-4">
+              <label>Driver Age</label>
+              <input type="number" name="driver_age" class="form-control" placeholder="Enter Age" />
+            </div>
+          </div>
+          <br>
+
+          <div class="form-buttons">
+            <button type="reset" class="btn btn-secondary">Reset</button>
+
+            <button type="submit" class="btn btn-primary">Save Driver</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}
