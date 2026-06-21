@@ -138,22 +138,17 @@ def view_details(request, car_id):
     return render(request, 'view_detail.html', context)
 def car_booking(request, car_id):
     # car = Car.objects.filter(id=car_id).first()  # Use .first() to get the actual object
-    # car = get_object_or_404(
-    #     Car.objects.select_related(
-    #         'driver',
-    #         'vendor'
-    #     ),
-    #     id=car_id
-    # )
-    # context = {
-    #     'car': car
-    # }
-    # print("Car:", car.car_name)
-    # print("Driver:", car.driver)cars = Car.objects.all()
-    cars=Driver.objects.all()
-    print(cars)
+    car = get_object_or_404(
+        Car.objects.select_related(
+            'driver',
+            'vendor'
+        ),
+        id=car_id
+    )
     context = {
-        'car': cars
-    }  
+        'car': car
+    }
+    print("Car:", car.car_name)
+    print("Driver:", car.driver)
     
     return render(request, 'book.html', context)

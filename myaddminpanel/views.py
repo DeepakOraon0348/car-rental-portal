@@ -95,10 +95,8 @@ def add_car(request):
     drivers = Driver.objects.filter(
         vendor_id=vendor_id
     )
-
+    print(drivers)
     if request.method == 'POST':
-
-        vendor = VendorLogin.objects.get(id=vendor_id)
         
         driver_id = request.POST.get('driver')
         driver = None
@@ -144,7 +142,7 @@ def add_car(request):
         print("Car Added Successfully")
 
         return redirect('vendor-profile')
-    return render(request, 'addproduct.html')
+    return render(request, 'addproduct.html', {'drivers':drivers})
 
 def add_driver(request):
    vendor_id = request.session.get('vendor_id')
