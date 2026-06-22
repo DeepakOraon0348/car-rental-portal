@@ -152,3 +152,33 @@ def car_booking(request, car_id):
     print("Driver:", car.driver)
     
     return render(request, 'book.html', context)
+
+# =======================accessing the booking details ==================
+def create_booking(request, car_id):
+
+    if request.method == "POST":
+
+        car = Car.objects.get(id=car_id)
+
+        Booking.objects.create(
+            user=request.user,
+            vendor=car.vendor,
+            car=car,
+
+            pickup_location=request.POST.get('pickup_location'),
+            pickup_date=request.POST.get('pickup_date'),
+            pickup_time=request.POST.get('pickup_time'),
+
+            return_date=request.POST.get('return_date'),
+            return_time=request.POST.get('return_time'),
+
+            total_days=request.POST.get('total_days'),
+
+            rent_per_day=car.rent_per_day,
+
+            total_amount=request.POST.get('total_amount'),
+
+            payment_method=request.POST.get('payment_method')
+        )
+
+        return redirect('my-bookings')

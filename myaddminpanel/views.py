@@ -165,3 +165,4 @@ def add_driver(request):
         return redirect("add-car")
 
    return render(request, "driverInfo.html")
+

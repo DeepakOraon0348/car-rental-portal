@@ -12,239 +12,189 @@
       <h3>car Detail</h3>
     </div>
     <hr />
-    <div class="row g-2">
-      <div class="col-md-6 col-sm-12 col-12">
-        <h5 style="margin-left: 20px;">Car Details</h5>
-        <hr />
-        {% if car %}
-          <div class="car_detail">
-            <div style="width: 100%; height: 40vh; display: flex; justify-content: center;">
-              <img src="{{ car.image.url }}" alt="" width="40%" height="100%" />
+    <form action="{% url 'my-bookings' %}" method="POST">
+      <div class="row g-2">
+        <div class="col-md-6 col-sm-12 col-12">
+          <h5 style="margin-left: 20px;">Car Details</h5>
+          <hr />
+          {% if car %}
+            <div class="car_detail">
+              <div style="width: 100%; height: 40vh; display: flex; justify-content: center;">
+                <img src="{{ car.image.url }}" alt="" width="40%" height="100%" />
+              </div>
+              <h3>{{ car.car_name }}</h3>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <th style="background-color: #dee6f1;">Brand:</th>
+                      <td style="background-color: #dee6f1;">{{ car.brand }}</td>
+                    </tr>
+                    <tr>
+                      <th style="background-color: #dee6f1;">Model Number:</th>
+                      <td style="background-color: #dee6f1;">{{ car.model }}</td>
+                    </tr>
+                    <tr>
+                      <th style="background-color: #dee6f1;">status:</th>
+                      <td style="background-color: #dee6f1;">{{ car.status }}</td>
+                    </tr>
+                    <tr>
+                      <th style="background-color: #dee6f1;">car_number:</th>
+                      <td style="background-color: #dee6f1;">{{ car.car_number }}</td>
+                    </tr>
+                    <tr>
+                      <th style="background-color: #dee6f1;">pickup_location:</th>
+                      <td style="background-color: #dee6f1;">{{ car.pickup_location }}</td>
+                    </tr>
+                    <tr>
+                      <th style="background-color: #dee6f1;">year:</th>
+                      <td style="background-color: #dee6f1;">{{ car.year }} years</td>
+                    </tr>
+                    <tr>
+                      <th style="background-color: #dee6f1;">seats:</th>
+                      <td style="background-color: #dee6f1;">{{ car.seats }} seats</td>
+                    </tr>
+                    <tr>
+                      <th style="background-color: #dee6f1;">mileage:</th>
+                      <td style="background-color: #dee6f1;">{{ car.mileage }} KM/L</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <h3>{{ car.car_name }}</h3>
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <th style="background-color: #dee6f1;">Brand:</th>
-                    <td style="background-color: #dee6f1;">{{ car.brand }}</td>
-                  </tr>
-                  <tr>
-                    <th style="background-color: #dee6f1;">Model Number:</th>
-                    <td style="background-color: #dee6f1;">{{ car.model }}</td>
-                  </tr>
-                  <tr>
-                    <th style="background-color: #dee6f1;">status:</th>
-                    <td style="background-color: #dee6f1;">{{ car.status }}</td>
-                  </tr>
-                  <tr>
-                    <th style="background-color: #dee6f1;">car_number:</th>
-                    <td style="background-color: #dee6f1;">{{ car.car_number }}</td>
-                  </tr>
-                  <tr>
-                    <th style="background-color: #dee6f1;">pickup_location:</th>
-                    <td style="background-color: #dee6f1;">{{ car.pickup_location }}</td>
-                  </tr>
-                  <tr>
-                    <th style="background-color: #dee6f1;">year:</th>
-                    <td style="background-color: #dee6f1;">{{ car.year }} years</td>
-                  </tr>
-                  <tr>
-                    <th style="background-color: #dee6f1;">seats:</th>
-                    <td style="background-color: #dee6f1;">{{ car.seats }} seats</td>
-                  </tr>
-                  <tr>
-                    <th style="background-color: #dee6f1;">mileage:</th>
-                    <td style="background-color: #dee6f1;">{{ car.mileage }} KM/L</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          {% else %}
+            <p>This car not Available!</p>
+          {% endif %}
+        </div>
+        <div class="col-md-6 col-sm-12 col-12">
+          <h5 style="margin-left: 20px;">car Details</h5>
+          <hr />
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th style="background-color: #dee6f1;">Pickup Date:</th>
+                  <td style="background-color: #dee6f1;">
+                    <input name="pickup_date" type="date" id="pickupDate" />
+                  </td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">Pickup Time:</th>
+                  <td style="background-color: #dee6f1;">
+                    <input name="pickup_time" type="time" id="pickupTime" />
+                  </td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">return Date:</th>
+                  <td style="background-color: #dee6f1;">
+                    <input name="return_date" type="date" id="returnDate" />
+                  </td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">return Time:</th>
+                  <td style="background-color: #dee6f1;">
+                    <input name="return_time" type="time" id="returnTime" />
+                  </td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">Pickup Location:</th>
+                  <td style="background-color: #dee6f1;">
+                    <input name="pickup_location" type="text" />
+                  </td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">Drop-up Location:</th>
+                  <td style="background-color: #dee6f1;">
+                    <input name="dropup_location" type="text" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        {% else %}
-          <p>This car not Available!</p>
-        {% endif %}
-      </div>
-      <div class="col-md-6 col-sm-12 col-12">
-        <h5 style="margin-left: 20px;">car Details</h5>
-        <hr />
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <tbody>
-              <tr>
-                <th style="background-color: #dee6f1;">Pickup Date:</th>
-                <td style="background-color: #dee6f1;">
-                  <input type="date" id="pickupDate" />
-                </td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">Pickup Time:</th>
-                <td style="background-color: #dee6f1;">
-                  <input type="time" id="pickupTime" />
-                </td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">return Date:</th>
-                <td style="background-color: #dee6f1;">
-                  <input type="date" id="returnDate" />
-                </td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">return Time:</th>
-                <td style="background-color: #dee6f1;">
-                  <input type="time" id="returnTime" />
-                </td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">Pickup Location:</th>
-                <td style="background-color: #dee6f1;">
-                  <input type="text" />
-                </td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">Pickup Location:</th>
-                <td style="background-color: #dee6f1;">
-                  <input type="text" />
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
-      </div>
-    </div>
-    <hr />
-    <div class="col-md-12 col-12 oner-information" style="background-color: #dee6f1;">
-      {% if car.driver %}
-        <h5>DRIVER INFORMATION</h5>
-        <hr />
-        <div class="table-responsive">
-          <table class="table table-bordered" style="background-color: #dee6f1;">
-            <tbody>
-              <tr style="background-color: #dee6f1;">
-                <th style="background-color: #dee6f1;">Full Name</th>
-                <td style="background-color: #dee6f1;">{{ car.driver.driver_name }}</td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">Driver Lincense Number:</th>
-                <td style="background-color: #dee6f1;">{{ car.driver.driver_license_number }}</td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">Phone Number</th>
-                <td style="background-color: #dee6f1;">{{ car.driver.driver_ph_no }}</td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">Car Location</th>
-                <td style="background-color: #dee6f1;">{{ car.city }}</td>
-              </tr>
-              <tr>
-                <th style="background-color: #dee6f1;">Address</th>
-                <td style="background-color: #dee6f1;">{{ car.pickup_location }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      {% else %}
-        <p>Driver Information not Available!</p>
-      {% endif %}
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-md-6 col-sm-12 col-12" style="background-color: #dee6f1;">
-        <h5>PAYMENT METHOD</h5>
-        <hr />
-        <p>
-          <input type="radio" name="payment" />Pay Now
-        </p>
-        <p>
-          <input type="radio" name="payment" />Pay at Pickup
-        </p>
-      </div>
-      <div class="col-md-6 col-sm-12 col-12" style="background-color: #dee6f1;">
-        <h5>car SUMMARY</h5>
-        <hr />
-        <p>
-          <b>Rent/Day:</b> ₹<span id="rentPerDay">{{ car.rent_per_day }}</span>
-        </p>
-
-        <p>
-          <b>Total Days:</b> <span id="totalDays">0</span>
-        </p>
-
-        <p>
-          <b>Subtotal:</b> ₹<span id="subtotal">0</span>
-        </p>
-
-        <p>
-          <b>Tax (18%):</b> ₹<span id="tax">0</span>
-        </p>
-
-        <p>
-          <b>Deposit:</b> ₹<span id="deposit">2000</span>
-        </p>
-
-        <hr />
-
-        <h4>Total: ₹<span id="grandTotal">0</span></h4>
       </div>
       <hr />
-      <p>
-        <input type="checkbox" /><i>I agree to terms & Conditions</i>
-      </p>
-      <button type="submit" style=" width: 96%; background-color: violet; border-radius: 20px; margin-left: 20px; margin-right: 0px;">Confirm car</button>
-    </div>
+      <div class="col-md-12 col-12 oner-information" style="background-color: #dee6f1;">
+        {% if car.driver %}
+          <h5>DRIVER INFORMATION</h5>
+          <hr />
+          <div class="table-responsive">
+            <table class="table table-bordered" style="background-color: #dee6f1;">
+              <tbody>
+                <tr style="background-color: #dee6f1;">
+                  <th style="background-color: #dee6f1;">Full Name</th>
+                  <td style="background-color: #dee6f1;">{{ car.driver.driver_name }}</td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">Driver Lincense Number:</th>
+                  <td style="background-color: #dee6f1;">{{ car.driver.driver_license_number }}</td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">Phone Number</th>
+                  <td style="background-color: #dee6f1;">{{ car.driver.driver_ph_no }}</td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">Car Location</th>
+                  <td style="background-color: #dee6f1;">{{ car.city }}</td>
+                </tr>
+                <tr>
+                  <th style="background-color: #dee6f1;">Address</th>
+                  <td style="background-color: #dee6f1;">{{ car.pickup_location }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p>Driver Information not Available!</p>
+        {% endif %}
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-12" style="background-color: #dee6f1;">
+          <h5>PAYMENT METHOD</h5>
+          <hr />
+          <p>
+            <input name="payment_method" value="Pay Now" type="radio" name="payment" />Pay Now
+          </p>
+          <p>
+            <input name="payment_method" value="Pay at Pickup" type="radio" name="payment" />Pay at Pickup
+          </p>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12" style="background-color: #dee6f1;">
+          <h5>car SUMMARY</h5>
+          <hr />
+          <p>
+            <b>Rent/Day:</b> ₹<span id="rentPerDay">{{ car.rent_per_day }}</span>
+          </p>
+
+          <p>
+            <b>Total Days:</b> <span id="totalDays">0</span>
+          </p>
+
+          <p>
+            <b>Subtotal:</b> ₹<span id="subtotal">0</span>
+          </p>
+
+          <p>
+            <b>Tax (18%):</b> ₹<span id="tax">0</span>
+          </p>
+
+          <p>
+            <b>Deposit:</b> ₹<span id="deposit">2000</span>
+          </p>
+
+          <hr />
+
+          <h4>Total: ₹<span id="grandTotal">0</span></h4>
+        </div>
+        <hr />
+        <p>
+          <input type="checkbox"  name="terms" required /><i>I agree to terms & Conditions</i>
+        </p>
+        <button type="submit" style=" width: 96%; background-color: violet; border-radius: 20px; margin-left: 20px; margin-right: 0px;">Confirm car</button>
+      </div>
+    </form>
     <hr />
   </section>
   <script src="{% static 'js/book.js' %}"></script>
-  {% comment %} <script>
-    const pickupDate = document.getElementById('pickupDate')
-    const pickupTime = document.getElementById('pickupTime')
-    
-    const returnDate = document.getElementById('returnDate')
-    const returnTime = document.getElementById('returnTime')
-    
-    const rentPerDay = parseFloat(document.getElementById('rentPerDay').innerText)
-    
-    function calculateAmount() {
-      if (!pickupDate.value || !pickupTime.value || !returnDate.value || !returnTime.value) {
-        return
-      }
-    
-      const start = new Date(pickupDate.value + 'T' + pickupTime.value)
-    
-      const end = new Date(returnDate.value + 'T' + returnTime.value)
-    
-      const diffMs = end - start
-    
-      if (diffMs <= 0) {
-        alert('Return date must be greater than pickup date')
-        return
-      }
-    
-      let totalDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24))
-    
-      let subtotal = totalDays * rentPerDay
-    
-      let tax = subtotal * 0.18
-    
-      let deposit = 2000
-    
-      let grandTotal = subtotal + tax + deposit
-    
-      document.getElementById('totalDays').innerText = totalDays
-    
-      document.getElementById('subtotal').innerText = subtotal.toFixed(2)
-    
-      document.getElementById('tax').innerText = tax.toFixed(2)
-    
-      document.getElementById('grandTotal').innerText = grandTotal.toFixed(2)
-    }
-    
-    pickupDate.addEventListener('change', calculateAmount)
-    
-    pickupTime.addEventListener('change', calculateAmount)
-    
-    returnDate.addEventListener('change', calculateAmount)
-    
-    returnTime.addEventListener('change', calculateAmount)
-  </script> {% endcomment %}
 {% endblock %}
