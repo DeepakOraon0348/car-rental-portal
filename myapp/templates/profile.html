@@ -403,7 +403,11 @@
         <div class="col-lg-3 col-md-6">
           <div class="dashboard-card">
             <i class="fa-solid fa-car-side"></i>
-            <h2>12</h2>
+            {% if booking_count %}
+              <h2>{{ booking_count }}</h2>
+            {% else %}
+              <h2>8</h2>
+            {% endif %}
             <p>Total Bookings</p>
           </div>
         </div>
@@ -454,7 +458,8 @@
             <thead>
               <tr>
                 <th>Car</th>
-                <th>Location</th>
+                <th>Pickup-Location</th>
+                <th>Dropup-Location</th>
                 <th>Date</th>
                 <th>Amount</th>
                 <th>Status</th>
@@ -467,7 +472,8 @@
                 <td>
                   <div class="d-flex align-items-center gap-3">
                     <img
-                      src="{{books.image.url}}"
+                      src="{{books.car.image.url}}"
+                      width="10%"
                     />
                     <div>
                       <h6 class="mb-1 fw-bold">{{books.car.brand}}</h6>
@@ -477,64 +483,17 @@
                 </td>
 
                 <td>{{books.pickup_location}}</td>
+                <td>{{books.pickup_location}}</td>
 
                 <td>{{books.pickup_date}}</td>
 
                 <td>{{books.total_amount}}</td>
 
                 <td>
-                  <span class="status completed">{{books.payment_status}}</span>
+                  <span class="status completed">{{books.status}}</span>
                 </td>
               </tr>
               {% endfor %}
-
-              <tr>
-                <td>
-                  <div class="d-flex align-items-center gap-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=600"
-                    />
-                    <div>
-                      <h6 class="mb-1 fw-bold">Audi A6</h6>
-                      <small class="text-secondary">Sedan</small>
-                    </div>
-                  </div>
-                </td>
-
-                <td>Jamshedpur</td>
-
-                <td>04 May 2026</td>
-
-                <td>₹5,200</td>
-
-                <td>
-                  <span class="status pending"> Ongoing </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <div class="d-flex align-items-center gap-3">
-                    <img
-                      src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600"
-                    />
-                    <div>
-                      <h6 class="mb-1 fw-bold">Mercedes</h6>
-                      <small class="text-secondary">Premium</small>
-                    </div>
-                  </div>
-                </td>
-
-                <td>Patna</td>
-
-                <td>15 Mar 2026</td>
-
-                <td>₹6,000</td>
-
-                <td>
-                  <span class="status cancelled"> Cancelled </span>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>

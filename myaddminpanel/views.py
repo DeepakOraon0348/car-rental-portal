@@ -14,7 +14,6 @@ def login_view(request):
            password = request.POST.get('password')
 
            user = VendorLogin.objects.get(username=username, password=password)
-           print(user)
            if user:
                request.session['vendor_id'] = user.id
                request.session['vendor_name'] = user.username
@@ -164,5 +163,15 @@ def add_driver(request):
 
         return redirect("add-car")
 
-   return render(request, "driverInfo.html")
-
+   return render(request, "driverInfo.html")  
+def book_history(request):
+    print("hey i am working!")
+    try:
+       vendor_id = request.session.get('vendor_id')
+       bookings=Booking.objects.filter(vendor_id=vendor_id)
+       context={
+            'booking':bookings
+       }
+       return redirect('book_history', context)
+    except Exception as e:
+        return redirect('vendor-profile')

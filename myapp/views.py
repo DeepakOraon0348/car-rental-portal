@@ -129,11 +129,10 @@ def logout_view(request):
 @login_required
 def profile(request):
     booking=Booking.objects.filter(user=request.user).select_related('car', 'vendor')
-    context={
-        booking:booking
-    }
-    print(context)
-    return render(request, 'profile.html', context)
+    booking_count=Booking.objects.filter(user=request.user).select_related('car').count();
+     
+    return render(request, 'profile.html', { 'booking':booking, 'booking_count':booking_count})
+    
 def akash(request):
     return render(request, 'akash.html')
 

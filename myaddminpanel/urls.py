@@ -11,4 +11,5 @@ urlpatterns=[
     path('vendor-profile/', vendor_profile, name='vendor-profile'),
     path('logout/', logout_view_1, name='logout_1'),
     path('add_driver/', add_driver, name='add_driver'),
+    path('book_history/', book_history, name='book_history'),
 ]
