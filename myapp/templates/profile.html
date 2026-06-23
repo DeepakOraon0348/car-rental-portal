@@ -462,29 +462,31 @@
             </thead>
 
             <tbody>
+              {% for books in booking %}
               <tr>
                 <td>
                   <div class="d-flex align-items-center gap-3">
                     <img
-                      src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600"
+                      src="{{books.image.url}}"
                     />
                     <div>
-                      <h6 class="mb-1 fw-bold">BMW X5</h6>
-                      <small class="text-secondary">Luxury SUV</small>
+                      <h6 class="mb-1 fw-bold">{{books.car.brand}}</h6>
+                      <small class="text-secondary">{{books.car.car_name}}</small>
                     </div>
                   </div>
                 </td>
 
-                <td>Ranchi</td>
+                <td>{{books.pickup_location}}</td>
 
-                <td>20 Apr 2026</td>
+                <td>{{books.pickup_date}}</td>
 
-                <td>₹4,500</td>
+                <td>{{books.total_amount}}</td>
 
                 <td>
-                  <span class="status completed"> Completed </span>
+                  <span class="status completed">{{books.payment_status}}</span>
                 </td>
               </tr>
+              {% endfor %}
 
               <tr>
                 <td>

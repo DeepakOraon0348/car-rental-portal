@@ -165,7 +165,7 @@ class Booking(models.Model):
         related_name='booking'
     )
     pickup_location=models.CharField(max_length=200)
-    dropup_location=models.CharField(max_length=200)
+    # dropup_location=models.CharField(max_length=200)
     
     pickup_date=models.DateField()
     pickup_time=models.TimeField()

@@ -37,12 +37,17 @@ console.log("Hello sir i am working fine you can access now");
       let grandTotal = subtotal + tax + deposit
     
       document.getElementById('totalDays').innerText = totalDays
+      document.getElementById('totalDaysInput').value = totalDays
     
       document.getElementById('subtotal').innerText = subtotal.toFixed(2)
+      document.getElementById('subtotalInput').value = subtotal.toFixed(2)
     
       document.getElementById('tax').innerText = tax.toFixed(2)
+      document.getElementById('taxInput').value = tax.toFixed(2)
     
       document.getElementById('grandTotal').innerText = grandTotal.toFixed(2)
+      document.getElementById('grandTotalInput').value = grandTotal.toFixed(2)
+      
     }
     
     pickupDate.addEventListener('change', calculateAmount)

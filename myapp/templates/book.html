@@ -12,7 +12,8 @@
       <h3>car Detail</h3>
     </div>
     <hr />
-    <form action="{% url 'my-bookings' %}" method="POST">
+    <form action="{% url 'booking_confirm' car.id %}" method="POST">
+      {% csrf_token %}
       <div class="row g-2">
         <div class="col-md-6 col-sm-12 col-12">
           <h5 style="margin-left: 20px;">Car Details</h5>
@@ -164,19 +165,27 @@
           <h5>car SUMMARY</h5>
           <hr />
           <p>
+            {% comment %} <b>Rent/Day:</b> ₹<span id="rentPerDay">{{ car.rent_per_day }}</span> {% endcomment %}
             <b>Rent/Day:</b> ₹<span id="rentPerDay">{{ car.rent_per_day }}</span>
+            <input type="hidden" name="rent_per_day" value="{{ car.rent_per_day }}">
           </p>
 
           <p>
-            <b>Total Days:</b> <span id="totalDays">0</span>
+            {% comment %} <b>Total Days:</b> <span id="totalDays">0</span> {% endcomment %}
+            <b>Total Days:<b><span id="totalDays">0</span>
+            <input type="hidden" name="total_days" id="totalDaysInput">
           </p>
 
           <p>
+            {% comment %} <b>Subtotal:</b> ₹<span id="subtotal">0</span> {% endcomment %}
             <b>Subtotal:</b> ₹<span id="subtotal">0</span>
+            <input type="hidden" name="subtotal" id="subtotalInput">
           </p>
 
           <p>
+            {% comment %} <b>Tax (18%):</b> ₹<span id="tax">0</span> {% endcomment %}
             <b>Tax (18%):</b> ₹<span id="tax">0</span>
+            <input type="hidden" name="tax" id="taxInput">
           </p>
 
           <p>
@@ -185,7 +194,9 @@
 
           <hr />
 
+          {% comment %} <h4>Total: ₹<span id="grandTotal">0</span></h4> {% endcomment %}
           <h4>Total: ₹<span id="grandTotal">0</span></h4>
+          <input type="hidden" name="total_amount" id="grandTotalInput">
         </div>
         <hr />
         <p>

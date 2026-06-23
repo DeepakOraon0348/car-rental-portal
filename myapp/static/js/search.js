@@ -201,3 +201,11 @@ cars.forEach(car => {
 });
 
 // =================Gsap-section ====================
+
+// document.getElementById('totalDaysInput').value = totalDays
+
+//     document.getElementById('subtotalInput').value = subtotal.toFixed(2)
+
+//     document.getElementById('taxInput').value = tax.toFixed(2)
+
+//     document.getElementById('grandTotalInput').value = grandTotal.toFixed(2)

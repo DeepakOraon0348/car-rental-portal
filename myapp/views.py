@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from myaddminpanel.models import *
+from django.http import JsonResponse
+from django.forms.models import model_to_dict
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -115,7 +118,7 @@ def login_view(request):
             print("Invalid credentials")
             return redirect('login')
     return render(request, 'login.html')
-
+# ============================ logout view sectoin ======================
 def logout_view(request):
     if request.method == "POST":
         logout(request)
@@ -123,19 +126,31 @@ def logout_view(request):
 
     return redirect('profile')
 
-
+@login_required
 def profile(request):
-    return render(request, 'profile.html')
+    booking=Booking.objects.filter(user=request.user).select_related('car', 'vendor')
+    context={
+        booking:booking
+    }
+    print(context)
+    return render(request, 'profile.html', context)
 def akash(request):
     return render(request, 'akash.html')
 
+# ======================== car details view.section =======================
 def view_details(request, car_id):
     car = Car.objects.filter(id=car_id).first()  # Use .first() to get the actual object
     context = {
         'car': car
     }
-    print("Car details:", context)
+    # data = model_to_dict(car)
+
+    # data["image"] = car.image.url if car.image else None
+    # print("Car details:", context)
     return render(request, 'view_detail.html', context)
+    # return JsonResponse(data)
+    
+# ===============================car booking section =================================
 def car_booking(request, car_id):
     # car = Car.objects.filter(id=car_id).first()  # Use .first() to get the actual object
     car = get_object_or_404(
@@ -154,31 +169,33 @@ def car_booking(request, car_id):
     return render(request, 'book.html', context)
 
 # =======================accessing the booking details ==================
-def create_booking(request, car_id):
+def booking_confirm(request, car_id):
+    try:
+        if request.method == "POST":
 
-    if request.method == "POST":
+            car = Car.objects.get(id=car_id)
 
-        car = Car.objects.get(id=car_id)
+            Booking.objects.create(
+                user=request.user,
+                vendor=car.vendor,
+                car=car,
 
-        Booking.objects.create(
-            user=request.user,
-            vendor=car.vendor,
-            car=car,
+                pickup_location=request.POST.get('pickup_location'),
+                pickup_date=request.POST.get('pickup_date'),
+                pickup_time=request.POST.get('pickup_time'),
 
-            pickup_location=request.POST.get('pickup_location'),
-            pickup_date=request.POST.get('pickup_date'),
-            pickup_time=request.POST.get('pickup_time'),
+                return_date=request.POST.get('return_date'),
+                return_time=request.POST.get('return_time'),
 
-            return_date=request.POST.get('return_date'),
-            return_time=request.POST.get('return_time'),
+                total_days=request.POST.get('total_days'),
 
-            total_days=request.POST.get('total_days'),
-
-            rent_per_day=car.rent_per_day,
+                rent_per_day=car.rent_per_day,
 
             total_amount=request.POST.get('total_amount'),
 
-            payment_method=request.POST.get('payment_method')
-        )
+                payment_method=request.POST.get('payment_method')
+            )
 
-        return redirect('my-bookings')
+            return redirect('car_booking')
+    except Exception as e:
+        return render(request, 'book.html', {'car':car})   
