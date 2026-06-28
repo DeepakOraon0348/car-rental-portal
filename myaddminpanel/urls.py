@@ -12,4 +12,6 @@ urlpatterns=[
     path('logout/', logout_view_1, name='logout_1'),
     path('add_driver/', add_driver, name='add_driver'),
     path('book_history/', book_history, name='book_history'),
+    path('accept_booking/<int:book_id>', accept_booking, name='accept_booking'),
+    path('reject_booking/<int:book_id>', reject_booking, name='reject_booking'),
 ]

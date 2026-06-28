@@ -505,3 +505,32 @@ td button{
         width:100%;
     }
 }
+.accept{
+    width: auto;
+    padding:0;
+    background-color: white !important;
+    border-radius: 20px;
+    color: #111827 !important;
+    box-shadow: blue;
+}
+.accept:hover{
+    transform: scale(1.2);
+    background: linear-gradient(rgba(183, 248, 63, 0.929), rgba(233, 99, 99, 0.664), rgb(64, 37, 220));
+}
+.reject{
+    width: auto;
+    padding:0;
+    background: white !important;
+    border-radius: 20px;
+    color: blue !important;
+}
+.reject:hover{
+    transform: scale(1.2);
+    background: linear-gradient(rgba(114, 137, 71, 0.598), rgba(54, 19, 19, 0.758), rgb(64, 37, 220));
+}
+.reject:active{
+    transform: scale(0.90)
+}
+.accept:active{
+    transform: scale(0.90)
+}

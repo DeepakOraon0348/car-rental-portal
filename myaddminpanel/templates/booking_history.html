@@ -11,8 +11,8 @@
         {% include 'sidebar.html' %}
         <div class="main-content">
             <h2>Booking History</h2>
-            <table>
-                <tr>
+            <table class="table table-bordered">
+                <tr class="">
                     <th>Booking ID</th>
                     <th>Customer</th>
                     <th>Car</th>
@@ -23,11 +23,12 @@
                     <th>Payment</th>
                     <th>Status</th>
                     <th>Action</th>
+                    <th>Action</th>
                 </tr>
                 {% for book in bookings %}
                 <tr>
-                    <td>{{book.Booking.id}}</td>
-                    <td>{{book.user.user_name}}</td>
+                    <td>{{book.id}}</td>
+                    <td>{{book.user.username}}</td>
                     <td>{{book.car.car_name}}</td>
                     <td>{{book.pickup_date}}</td>
                     <td>{{book.return_date}}</td>
@@ -36,13 +37,29 @@
                     <td>{{book.payment_status}}</td>
                     <td>{{book.status}}</td>
                     <td>
-                        <button style="border-radius: 20px; background-color: blueviolet; color: white;">Accept</button>
-                        <button style="border-radius: 20px; background-color: red; color: white;">Reject</button>
+                        {% if book.status == 'Pending' %}
+                            <form action="{% url 'accept_booking' book.id %}" method="POST" style="margin: 0; padding: 0;">
+                                {% csrf_token %}
+                                <button class="accept" type="submit">Accept</button>
+                            </form>
+                        {% else %}
+                            <span class="text-success disabled" aria-disabled="true">Accept</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if book.status == 'Pending'%}
+                        <form action="{% url 'reject_booking' book.id %}" method="POST" style="margin: 0; padding: 0;" >
+                            {% csrf_token %}
+                            <button class="reject" type="submit">Reject</button>
+                        </form>
+                        {% else %}
+                        <span class="text-success disabled" aria-disabled="true">Rejected</span>
+                        {% endif %}
                     </td>
                 </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
-
 </section>
 {% endblock content %}

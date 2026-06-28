@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -170,8 +170,28 @@ def book_history(request):
        vendor_id = request.session.get('vendor_id')
        bookings=Booking.objects.filter(vendor_id=vendor_id)
        context={
-            'booking':bookings
+            'bookings':bookings
        }
-       return redirect('book_history', context)
+       print(context)
+       return render(request, 'booking_history.html', context)
     except Exception as e:
         return redirect('vendor-profile')
+    return render(request, 'booking_history.html');
+
+def accept_booking(request ,book_id):
+    book=get_object_or_404(
+        Booking.objects.filter(id=book_id)
+    )
+    book.status="Confirmed"
+    book.save()
+    
+    return redirect('book_history')
+    
+def reject_booking(request, book_id):
+    book=get_object_or_404(
+        Booking.objects.filter(id=book_id)
+    )
+    book.status="Rejected"
+    book.save()
+    
+    return redirect('book_history')

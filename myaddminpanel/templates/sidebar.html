@@ -5,8 +5,10 @@
 
   <ul>
     <li class="active">
+      <a href="{% url 'vendor-profile' %}"  style="text-decoration: none; color: inherit;">
       <i class="fa-solid fa-house"></i>
       Dashboard
+      </a>
     </li>
     <li class="add-car">
       <a href="{% url 'add_driver' %}" style="text-decoration: none; color: inherit;">
@@ -16,7 +18,7 @@
     </li>
 
     <li>
-    <a href="#" style="text-decoration: none; color: inherit;">
+    <a href="{% url 'vendor-profile'%}" style="text-decoration: none; color: inherit;">
       <i class="fa-solid fa-car"></i>
       My Cars
     </a>
