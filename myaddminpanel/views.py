@@ -195,3 +195,30 @@ def reject_booking(request, book_id):
     book.save()
     
     return redirect('book_history')
+
+def updateDriver(request, car_id):
+    cars=get_object_or_404(
+           Car.objects.filter(id=car_id).select_related( 'driver','vendor')
+        );
+    driver=cars.driver
+    
+    if request.method == 'POST':
+        driver.driver_name = request.POST.get("driver_name")
+        driver.driver_ph_no = request.POST.get("driver_ph_no")
+        driver.driver_license_number = request.POST.get("driver_license_number")
+        driver.driver_license_expiry = request.POST.get("driver_license_expiry")
+        driver.driver_age = request.POST.get("driver_age")
+
+        driver.save()
+        
+        return render(request, 'update.html', {
+            'car':cars
+        })
+    context={
+        'car':cars
+    }
+    
+    return render(request, 'updateDrivers.html', context)
+
+def updateCar(request , car_id):
+    return render(request, 'update.html')

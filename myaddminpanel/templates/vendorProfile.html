@@ -79,7 +79,7 @@
                 <td>₹{{ car.rent_per_day }}</td>
                 <td>{{ car.status }}</td>
                 <td>
-                  <a href="#" style="background-color: white; color: aqua; cursor: pointer;"><i class="fa-regular fa-pen-to-square"></i></a>
+                  <a href="{% url 'updateDriver' car.id %}" style="background-color: white; color: aqua; cursor: pointer;"><i class="fa-regular fa-pen-to-square"></i></a>
                   <a href="#" style="background-color: white; color: aqua; cursor: pointer;"><i class="fa-regular fa-trash-can"></i></a>
                 </td>
               </tr>
