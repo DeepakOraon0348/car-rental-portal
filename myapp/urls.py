@@ -5,22 +5,21 @@ from django.urls import include, path
 from CarRentalPortal import settings
 from .views import *
 
-urlpatterns=[
-    path('', index, name='index'),
-    path('search/',search, name='search'),
+# from myaddminpanel.views import *
+
+urlpatterns = [
+    path("", index, name="index"),
+    path("search/", search, name="search"),
     # path('car-detail/', CarDetail, name='car-detail'),
-    path('signup/', signup, name='signup'),
-    path('login/', login_view, name='login'),
-    path('/profile', profile , name='profile'),
-    path('/akash', akash, name='akash'),
-    path('logout/', logout_view, name='logout'),
-    path('view_details/<int:car_id>/', view_details, name='view_details'),
-    path('booking/<int:car_id>/',car_booking, name='car_booking'),
-    path('booking_confirm/<int:car_id>', booking_confirm, name='booking_confirm')
+    path("signup/", signup, name="signup"),
+    path("login/", login_view, name="login"),
+    path("/profile", profile, name="profile"),
+    path("/akash", akash, name="akash"),
+    path("logout/", logout_view, name="logout"),
+    path("view_details/<int:car_id>/", view_details, name="view_details"),
+    path("booking/<int:car_id>/", car_booking, name="car_booking"),
+    path("booking_confirm/<int:car_id>", booking_confirm, name="booking_confirm"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

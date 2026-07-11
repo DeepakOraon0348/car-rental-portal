@@ -60,7 +60,8 @@ def signup_1(request):
         else:
             print("Password does not match")
 
-            return redirect("signup-1")
+            return redirect("signup_1")
+        return render(request, "signup_1.html")
 
 
 def vendor_profile(request):
@@ -224,7 +225,7 @@ def updateCar(request, car_id):
         drivers = Driver.objects.filter(vendor=vendor)
     except:
         print("Driver does not Exist!")
-        
+
     if request.method == "POST":
 
         car.car_name = request.POST.get("car_name")

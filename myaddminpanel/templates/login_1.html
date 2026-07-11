@@ -1,74 +1,51 @@
 {% extends 'base_1.html' %}
 {% load static %}
 
-{% block title %}Login - Car Rental Portal{% endblock title %}
+{% block title %}
+  Login - Car Rental Portal
+{% endblock %}
 
 {% block content %}
-<section class="login_1-sec">
-<div class="container">
-
-    <!-- Left Section -->
-    <div class="left-section">
-
+  <section class="login_1-sec">
+    <div class="container">
+      <!-- Left Section -->
+      <div class="left-section">
         <div class="overlay">
-            <h1>Drive Your Dream Car</h1>
+          <h1>Drive Your Dream Car</h1>
 
-            <p>
-                Book premium cars from trusted local vendors
-                anytime, anywhere.
-            </p>
+          <p>Book premium cars from trusted local vendors anytime, anywhere.</p>
         </div>
+      </div>
 
-    </div>
-
-    <!-- Right Section -->
-    <div class="right-section">
-
+      <!-- Right Section -->
+      <div class="right-section">
         <div class="login-card">
+          <h2>Welcome Back</h2>
 
-            <h2>Welcome Back</h2>
+          <p>Login to continue</p>
 
-            <p>Login to continue</p>
+          <form method="POST">
+            {% csrf_token %}
 
-            <form method="POST">
-                {% csrf_token %}
-
-                <div class="input-group">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input
-                        type="type"
-                        name="username"
-                        placeholder="Enter username"
-                        required>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-lock"></i>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        required>
-                </div>
-
-                <button type="submit">
-                    Login
-                </button>
-
-            </form>
-
-            <div class="bottom-text">
-                Don't have an account?
-                <a href="{% url 'signup-1' %}">
-                    Register
-                </a>
+            <div class="input-group">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="type" name="username" placeholder="Enter username" required />
             </div>
 
+            <div class="input-group">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" name="password" placeholder="Password" required />
+            </div>
+
+            <button type="submit">Login</button>
+          </form>
+
+          <div class="bottom-text">
+            Don't have an account?
+            <a href="{% url 'signup_1' %}">Register</a>
+          </div>
         </div>
-
+      </div>
     </div>
-
-</div>
-</section>
-
-{% endblock content %}
+  </section>
+{% endblock %}

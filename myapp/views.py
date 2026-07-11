@@ -1,3 +1,5 @@
+from django.contrib import messages
+
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -100,6 +102,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+            messages.success(request, "Login successful!")
             return redirect("search")
         else:
             print("Invalid credentials")
