@@ -1,121 +1,103 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Car Rental Portal | search{% endblock title %}
+{% block title %}
+  Car Rental Portal | search
+{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/search.css' %}" />
-{% endblock css %}
-{%block content%}
-<section class="topbar">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <a href="mailto:support@carbook.com">
-          <p><i class="fa-solid fa-envelope"></i> : support@carbook.com</p>
-        </a>
-      </div>
-      <div class="col-md-4 col-6">
-        <a href="tel:09876543210">
-          <p><i class="fa-solid fa-phone"></i> : +91-9876543210</p>
-        </a>
-      </div>
-      <div class="col-md-4 col-6">
-        <a href="https://maps.app.goo.gl/7VXaGJdYnZ6BHrd58" target="_blank">
-          <p><i class="fa-solid fa-map"></i> : Jharkhand, India</p>
-        </a>
+  <link rel="stylesheet" href="{% static 'css/search.css' %}" />
+{% endblock %}
+{% block content %}
+  <section class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="mailto:support@carbook.com">
+            <p>
+              <i class="fa-solid fa-envelope"></i> : support@carbook.com
+            </p>
+          </a>
+        </div>
+        <div class="col-md-4 col-6">
+          <a href="tel:09876543210">
+            <p>
+              <i class="fa-solid fa-phone"></i> : +91-9876543210
+            </p>
+          </a>
+        </div>
+        <div class="col-md-4 col-6">
+          <a href="https://maps.app.goo.gl/7VXaGJdYnZ6BHrd58" target="_blank">
+            <p>
+              <i class="fa-solid fa-map"></i> : Jharkhand, India
+            </p>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<header class="head">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding: 5px">
-    <a class="navbar-brand" href="index.html"
-      ><img src="{% static 'image/aq1.jpg'%}" width="100%"
-    /></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse p-2 nav-1" id="navbarNav">
-      <ul class="navbar-nav nav-list">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'index'%}"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'index'%}#Brose">Browse Cars</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'index'%}#offer">Offer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-disabled="" href="{% url 'index'%}#about"
-            >About Us</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-disabled="" href="{% url 'index'%}#contact"
-            >Contact Us</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link logg" aria-disabled="" href="{% url 'login' %}">Login</a>
-        </li>
-      </ul>
-      <div class="input-sec">
-        <div class="row">
-          <div class="col-md-10" style="padding-right: 0px">
-            <div class="input-sec-nav">
-              <div class="row g-0">
-                <div class="col-md-8 col-10">
-                  <input type="text" class="form-control u" />
-                </div>
-                <div class="col-md-4 col-2">
-                  <button class="search-1">
-                    <a href="{% url 'login' %}"><i class="fa-brands fa-sistrix"></i></a>
-                  {% comment %} </button>
-                      ><i class="fa-brands fa-sistrix"></i
-                    ></a>
-                  </button> {% endcomment %}
+  <header class="head">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="padding: 5px">
+      <a class="navbar-brand" href="index.html"><img src="{% static 'image/aq1.jpg' %}" width="100%" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse p-2 nav-1" id="navbarNav">
+        <ul class="navbar-nav nav-list">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}#Brose">Browse Cars</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}#offer">Offer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-disabled="" href="{% url 'index' %}#about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-disabled="" href="{% url 'index' %}#contact">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logg" aria-disabled="" href="{% url 'login' %}">Login</a>
+          </li>
+        </ul>
+        <div class="input-sec">
+          <div class="row">
+            <div class="col-md-10" style="padding-right: 0px">
+              <div class="input-sec-nav">
+                <div class="row g-0">
+                  <div class="col-md-8 col-10">
+                    <input type="text" class="form-control u" />
+                  </div>
+                  <div class="col-md-4 col-2">
+                    <button class="search-1"><a href="{% url 'login' %}"><i class="fa-brands fa-sistrix"></i></a></button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          {% comment %} ================= profile section =============== {% endcomment %}
-          <div class="col-md-2" style="margin-left: -30px;">
-            <div class="log-in-sec" style="display: flex;">
-              {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}"><i class="fa-solid fa-circle-user"></i></a>
-                <a href="{% url 'profile' %}">{{ user.username|title}}</a>
-              {% else %}
-                <a href="{% url 'login' %}"><i class="fa-solid fa-circle-user"></i></a>
-              {% endif %}
+            {% comment %}================= profile section ==============={% endcomment %}
+            <div class="col-md-2" style="margin-left: -30px;">
+              <div class="log-in-sec" style="display: flex;">
+                {% if user.is_authenticated %}
+                  <a href="{% url 'profile' %}"><i class="fa-solid fa-circle-user"></i></a>
+                  <a href="{% url 'profile' %}">{{ user.username|title }}</a>
+                {% else %}
+                  <a href="{% url 'login' %}"><i class="fa-solid fa-circle-user"></i></a>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
-</header>
-<!-- =============== filter-section =======================-->
-<section class="car-search">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2 col-sm-2">
-      <form action="{% url 'search' %}" method="GET">
-
-        <div class="filter-sec">
-          <div
-            class="filter-sec-1"
-            style="
+    </nav>
+  </header>
+  <!-- =============== filter-section ======================= -->
+  <section class="car-search">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 col-sm-2 cars-filter-section">
+          <form action="{% url 'search' %}" method="GET">
+            <div class="filter-sec">
+              <div class="filter-sec-1" style="
               display: flex;
               justify-content: space-between;
               align-items: center;
@@ -123,260 +105,264 @@
               padding-left: 5px;
               padding-right: 5px;
               border-bottom: 1px solid black;
-            "
-          >
-            <h5>Filters</h5>
-            <a href="#" style="text-decoration: none">clear All</a>
-          </div>
-          <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Pick-up Location</b></p>
-            <select
-              name="pickup_location"
-              id=""
-              style="
+            ">
+                <h5>Filters</h5>
+                <a href="#" style="text-decoration: none">clear All</a>
+              </div>
+              <div class="m-2">
+                <p style="margin-bottom: 0px">
+                  <b>Pick-up Location</b>
+                </p>
+                <select name="pickup_location" id="" style="
                 padding: 5px;
                 line-height: 5px;
                 width: 100%;
                 border-radius: 10px;
-              "
-            >
-              <option value="">All</option>
-              <option value="Ranchi">Ranchi</option>
-              <option value="Jamshedpur">Jamshedpur</option>
-              <option value="Seraikella">Seraikella</option>
-              <option value="Chaibasa">Chaibasa</option>
-              <option value="Aditypur">Aditypur</option>
-              <option value="Kharswan">kharswan</option>
-            </select>
-          </div>
-          <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Seats</b></p>
-            <input type="text" name="seats" style="
+              ">
+                  <option value="">All</option>
+                  <option value="Ranchi">Ranchi</option>
+                  <option value="Jamshedpur">Jamshedpur</option>
+                  <option value="Seraikella">Seraikella</option>
+                  <option value="Chaibasa">Chaibasa</option>
+                  <option value="Aditypur">Aditypur</option>
+                  <option value="Kharswan">kharswan</option>
+                </select>
+              </div>
+              <div class="m-2">
+                <p style="margin-bottom: 0px">
+                  <b>Seats</b>
+                </p>
+                <input type="text" name="seats" style="
+                padding: 5px;
+                line-height: 5px;
+                width: 170px;
+                border-radius: 10px;
+              " />
+              </div>
+              <div class="m-2">
+                <p style="margin-bottom: 0px">
+                  <b>Fuel Type</b>
+                </p>
+                <select name="fuel_type" style="
                 padding: 5px;
                 line-height: 5px;
                 width: 170px;
                 border-radius: 10px;
               ">
-          </div>
-          <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Fuel Type</b></p>
-            <select name="fuel_type" style="
-                padding: 5px;
-                line-height: 5px;
-                width: 170px;
-                border-radius: 10px;
-              ">
-              <option value="">All Fuel Types</option>
-              <option value="Petrol">Petrol</option>
-              <option value="Diesel">Diesel</option>
-              <option value="Hybrid">Hybrid</option>
-              <option value="CNG">CNG</option>
-              <option value="Electric">Electric</option>
-            </select>
-          </div>
-          <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Transmission</b></p>
-            <select name="transmission">
-              <option value="">All</option>
-              <option value="Manual">Manual</option>
-              <option value="Automatic">Automatic</option>
-            </select>
-          </div>
-          <div class="m-2">
-            <p style="margin-bottom: 0px"><b>Car Type</b></p>
-            <select
-              name="car_type"
-              id=""
-              style="
+                  <option value="">All Fuel Types</option>
+                  <option value="Petrol">Petrol</option>
+                  <option value="Diesel">Diesel</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="CNG">CNG</option>
+                  <option value="Electric">Electric</option>
+                </select>
+              </div>
+              <div class="m-2">
+                <p style="margin-bottom: 0px">
+                  <b>Transmission</b>
+                </p>
+                <select name="transmission">
+                  <option value="">All</option>
+                  <option value="Manual">Manual</option>
+                  <option value="Automatic">Automatic</option>
+                </select>
+              </div>
+              <div class="m-2">
+                <p style="margin-bottom: 0px">
+                  <b>Car Type</b>
+                </p>
+                <select name="car_type" id="" style="
                 padding: 5px;
                 line-height: 5px;
                 width: 100%;
                 border-radius: 10px;
-              "
-            >
-              <option value="">All</option>
-              <option value="Maruti Swift">Maruti Swift</option>
-              <option value="Honda City">Honda City</option>
-              <option value="Hyundai Creta">Hyundai creta</option>
-              <option value="Toyota Fortuner">Toyota Fortuner</option>
-              <option value="Suzuki Eartika">Suzuki Eartika</option>
-              <option value="Tata nexon">Tata nexon</option>
-            </select>
-          </div>
-          <div class="m-2">
-            <div>
-              <label>Min Price:</label>
-              <input type="number" name="min_price" style="width: 90px !important;">
-            </div>
+              ">
+                  <option value="">All</option>
+                  <option value="Maruti Swift">Maruti Swift</option>
+                  <option value="Honda City">Honda City</option>
+                  <option value="Hyundai Creta">Hyundai creta</option>
+                  <option value="Toyota Fortuner">Toyota Fortuner</option>
+                  <option value="Suzuki Eartika">Suzuki Eartika</option>
+                  <option value="Tata nexon">Tata nexon</option>
+                </select>
+              </div>
+              <div class="m-2">
+                <div>
+                  <label>Min Price:</label>
+                  <input type="number" name="min_price" style="width: 90px !important;" />
+                </div>
 
-            <div style="margin-top: 10px;">
-              <label>Max Price:</label>
-              <input type="number" name="max_price" style="width: 90px !important;">
-            </div>
-          </div>
-          <div class="m-2">
-            <button
-              style="
+                <div style="margin-top: 10px;">
+                  <label>Max Price:</label>
+                  <input type="number" name="max_price" style="width: 90px !important;" />
+                </div>
+              </div>
+              <div class="m-2">
+                <button style="
                 width: 100%;
                 border: none;
                 border-radius: 10px;
                 background-color: blue;
                 color: white;
                 padding: 5px;
-              "
-              type="submit"
-            >
-              Apply Filter
-            </button>
-          </div>
+              " type="submit">Apply Filter</button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
-      </div>
-      <div class="col-md-10 col-sm-10 col-12">
-        <div class="row mt-4">
-          <div>
-            <h5>Search Results</h5>
-            <div
-              style="
+        <div class="col-md-10 col-sm-10 col-12 cars-search-section-12">
+          <div class="row mt-4">
+            <div>
+              <h5>Search Results</h5>
+              <div style="
                 display: flex;
                 justify-content: space-between;
                 border-bottom: 2px solid black;
-              "
-            >
-              <p>Seaching 24 cars everyday</p>
-              <select
-                name=""
-                id=""
-                style="
+              ">
+                <p>Seaching 24 cars everyday</p>
+                <select name="" id="" style="
                   border-radius: 20px;
                   background-color: black;
                   color: white;
-                "
-              >
-                <option value="">
-                  <p>
-                    Sort by
-                    <b style="color: black; font-weight: bold">Papular</b>
-                  </p>
-                </option>
-              </select>
+                ">
+                  <option value="">
+                    <p>
+                      Sort by
+                      <b style="color: black; font-weight: bold">Papular</b>
+                    </p>
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div id="car-cards" class="row mt-4">
+              {% for car in cars %}
+                <div class="col-md-4 col-sm-6 col-12 mb-4">
+                  <a href="{% url 'view_details' car.id %}" style="text-decoration: none;">
+                    <div class="card h-100">
+                      <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}" />
+
+                      <div class="card-body">
+                        <h5 class="card-title">{{ car.brand }} {{ car.car_name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ car.brand }}</h6>
+
+                        <div class="features">
+                          <span>⛽ {{ car.fuel_type }}</span>
+                          <span>👥 {{ car.seats }} Seats</span>
+                          <span>⚙️ {{ car.transmission }}</span>
+                          <span>❄️ {{ car.ac|yesno:'AC,Non-AC' }}</span>
+                        </div>
+
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px;">
+                          <div>₹{{ car.rent_per_day }}/day</div>
+                          <a href="{% url 'view_details' car.id %}" style="text-decoration: none; color: white;"><button class="btn btn-primary view-btn">View Detail</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              {% endfor %}
             </div>
           </div>
-          
-          <div id="car-cards" class="row mt-4">
-            {% for car in cars %}
-              <div class="col-md-4 col-sm-6 col-12 mb-4">
-    <a href="{% url 'view_details' car.id %}" style="text-decoration: none;">
-        <div class="card h-100">
-            <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}">
-            
-            <div class="card-body">
-                <h5 class="card-title">{{ car.brand }} {{ car.car_name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ car.brand }}</h6>
-
-                <div class="features">
-                    <span >⛽  {{ car.fuel_type}}</span>
-                    <span>👥 {{ car.seats }} Seats</span>
-                    <span>⚙️ {{ car.transmission }}</span>
-                    <span>❄️ {{ car.ac|yesno:"AC,Non-AC" }}</span>
-                </div>
-
-                <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px;">
-                    <div>₹{{car.rent_per_day}}/day</div>
-                    <a href="{% url 'view_details' car.id %}" style="text-decoration: none; color: white;"><button class="btn btn-primary view-btn">View Detail</button></a>
-                </div>
-            </div>
         </div>
-        </a>
+      </div>
     </div>
-            {% endfor %}
+  </section>
+
+  <!-- ===============footer -section=============== -->
+  {% comment %} <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <!-- Brand -->
+        <div class="footer-col">
+          <h2 class="logo">🚗 CarBook</h2>
+          <hr />
+          <p>CarBook is your trusted car booking platform for affordable, fast, and reliable rides across multiple cities.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <hr />
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Browse Cars</a>
+            </li>
+            <li>
+              <a href="#">Offers</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <hr />
+          <ul>
+            <li>
+              <a href="#">Car Rental</a>
+            </li>
+            <li>
+              <a href="#">Luxury Cars</a>
+            </li>
+            <li>
+              <a href="#">Long Trips</a>
+            </li>
+            <li>
+              <a href="#">Airport Pickup</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <hr />
+          <p>📧 support@carbook.com</p>
+          <p>📞 +91 9876543210</p>
+          <p>📍 Jharkhand, India</p>
+
+          <!-- Social -->
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
           </div>
         </div>
       </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <p>© 2026 CarBook. All rights reserved.</p>
+      </div>
     </div>
-  </div>
-</section>
- 
-<!-- ===============footer -section=============== -->
-{% comment %} <footer class="footer">
-  <div class="container">
-    <div class="footer-container">
-      <!-- Brand -->
-      <div class="footer-col">
-        <h2 class="logo">🚗 CarBook</h2>
-        <hr />
-        <p>
-          CarBook is your trusted car booking platform for affordable, fast, and
-          reliable rides across multiple cities.
-        </p>
-      </div>
+  </footer> {% endcomment %}
 
-      <!-- Quick Links -->
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <hr />
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Browse Cars</a></li>
-          <li><a href="#">Offers</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Services -->
-      <div class="footer-col">
-        <h4>Services</h4>
-        <hr />
-        <ul>
-          <li><a href="#">Car Rental</a></li>
-          <li><a href="#">Luxury Cars</a></li>
-          <li><a href="#">Long Trips</a></li>
-          <li><a href="#">Airport Pickup</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <hr />
-        <p>📧 support@carbook.com</p>
-        <p>📞 +91 9876543210</p>
-        <p>📍 Jharkhand, India</p>
-
-        <!-- Social -->
-        <div class="social-icons">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-twitter"></i>
+  {% comment %} {% for car in cars %}
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ car.car_name }}</h5>
+          <p class="card-text">Price: ₹{{ car.price_per_day }}</p>
+          <p class="card-text">Price: ₹{{ car.seats }}</p>
+          <p class="card-text">Price: ₹{{ car.mileage }}</p>
+          <a href="#" class="btn btn-primary">Book Now</a>
         </div>
       </div>
     </div>
+  {% endfor %} {% endcomment %}
 
-    <!-- Bottom -->
-    <div class="footer-bottom">
-      <p>© 2026 CarBook. All rights reserved.</p>
-    </div>
-  </div>
-</footer> {% endcomment %}
-
-{% comment %} {% for car in cars %}
-  <div class="col-md-4 col-sm-6 col-12">
-    <div class="card">
-      <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}">
-      <div class="card-body">
-        <h5 class="card-title">{{ car.car_name }}</h5>
-        <p class="card-text">Price: ₹{{ car.price_per_day }}</p>
-        <p class="card-text">Price: ₹{{ car.seats }}</p>
-        <p class="card-text">Price: ₹{{ car.mileage }}</p>
-        <a href="#" class="btn btn-primary">Book Now</a>
-      </div>
-    </div>
-  </div>
-   
-{% endfor %} {% endcomment %}
-
-{% comment %} <script>
+  {% comment %} <script>
     window.cars = [
         {% for car in cars %}
         {
@@ -393,5 +379,5 @@
         {% endfor %}
     ];
 </script> {% endcomment %}
-{% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
-{% endblock content%}
+  {% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
+{% endblock %}
