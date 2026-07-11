@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from myaddminpanel.models import *
+from myaddminpanel.views import *
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 from django.contrib.auth.decorators import login_required
