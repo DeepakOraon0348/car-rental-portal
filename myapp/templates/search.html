@@ -213,6 +213,11 @@
         <div class="col-md-10 col-sm-10 col-12">
           <div class="row mt-4">
             <div class="cars-search-section-12">
+              <!-- Visible only on mobile/tablet -->
+              <button class="btn btn-outline-primary d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#filterSidebar">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+              </button>
               <h5>Search Results</h5>
               <div style="
                 display: flex;
@@ -235,9 +240,14 @@
               </div>
             </div>
 
-            <div id="car-cards" class="row mt-4">
+            <div id="car-cards" class="row mt-4 g-4 cars-search-section-123">
+              {% if cars %}
+
+              {% else %}
+                <p style="margin-left: 10px; font-weight: bold;">No cars found</p>
+              {% endif %}
               {% for car in cars %}
-                <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
                   <a href="{% url 'view_details' car.id %}" style="text-decoration: none;">
                     <div class="card h-100">
                       <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.car_name }}" />
@@ -253,9 +263,9 @@
                           <span>❄️ {{ car.ac|yesno:'AC,Non-AC' }}</span>
                         </div>
 
-                        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px; flex-wrap: wrap;">
                           <div>₹{{ car.rent_per_day }}/day</div>
-                          <a href="{% url 'view_details' car.id %}" style="text-decoration: none; color: white;"><button class="btn btn-primary view-btn">View Detail</button></a>
+                          <a href="{% url 'view_details' car.id %}" style="text-decoration: none; color: white;"><button class="btn btn-primary view-btn">View</button></a>
                         </div>
                       </div>
                     </div>
@@ -380,4 +390,129 @@
     ];
 </script> {% endcomment %}
   {% comment %} <script src="{% static 'js/search.js' %}"></script> {% endcomment %}
+  <div class="offcanvas offcanvas-start filter-section-mobile" tabindex="-1" id="filterSidebar">
+    <div class="offcanvas-header">
+      <h5>Filters</h5>
+
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="color: black; background-color: white;"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <!-- Paste your complete filter form here -->
+      <form action="{% url 'search' %}" method="GET">
+        <div class="">
+          <div class="filter-sec-1" style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding-top: 10px;
+              padding-left: 5px;
+              padding-right: 5px;
+              border-bottom: 1px solid black;
+            ">
+            <h5>Filters</h5>
+            <a href="#" style="text-decoration: none">clear All</a>
+          </div>
+          <div class="m-2">
+            <p style="margin-bottom: 0px">
+              <b>Pick-up Location</b>
+            </p>
+            <select name="pickup_location" id="" style="
+                padding: 5px;
+                line-height: 5px;
+                width: 100%;
+                border-radius: 10px;
+              ">
+              <option value="">All</option>
+              <option value="Ranchi">Ranchi</option>
+              <option value="Jamshedpur">Jamshedpur</option>
+              <option value="Seraikella">Seraikella</option>
+              <option value="Chaibasa">Chaibasa</option>
+              <option value="Aditypur">Aditypur</option>
+              <option value="Kharswan">kharswan</option>
+            </select>
+          </div>
+          <div class="m-2">
+            <p style="margin-bottom: 0px">
+              <b>Seats</b>
+            </p>
+            <input type="text" name="seats" style="
+                padding: 5px;
+                line-height: 5px;
+                width: 170px;
+                border-radius: 10px;
+              " />
+          </div>
+          <div class="m-2">
+            <p style="margin-bottom: 0px">
+              <b>Fuel Type</b>
+            </p>
+            <select name="fuel_type" style="
+                padding: 5px;
+                line-height: 5px;
+                width: 170px;
+                border-radius: 10px;
+              ">
+              <option value="">All Fuel Types</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="CNG">CNG</option>
+              <option value="Electric">Electric</option>
+            </select>
+          </div>
+          <div class="m-2">
+            <p style="margin-bottom: 0px">
+              <b>Transmission</b>
+            </p>
+            <select name="transmission">
+              <option value="">All</option>
+              <option value="Manual">Manual</option>
+              <option value="Automatic">Automatic</option>
+            </select>
+          </div>
+          <div class="m-2">
+            <p style="margin-bottom: 0px">
+              <b>Car Type</b>
+            </p>
+            <select name="car_type" id="" style="
+                padding: 5px;
+                line-height: 5px;
+                width: 100%;
+                border-radius: 10px;
+              ">
+              <option value="">All</option>
+              <option value="Maruti Swift">Maruti Swift</option>
+              <option value="Honda City">Honda City</option>
+              <option value="Hyundai Creta">Hyundai creta</option>
+              <option value="Toyota Fortuner">Toyota Fortuner</option>
+              <option value="Suzuki Eartika">Suzuki Eartika</option>
+              <option value="Tata nexon">Tata nexon</option>
+            </select>
+          </div>
+          <div class="m-2">
+            <div>
+              <label>Min Price:</label>
+              <input type="number" name="min_price" style="width: 90px !important;" />
+            </div>
+
+            <div style="margin-top: 10px;">
+              <label>Max Price:</label>
+              <input type="number" name="max_price" style="width: 90px !important;" />
+            </div>
+          </div>
+          <div class="m-2">
+            <button style="
+                width: 100%;
+                border: none;
+                border-radius: 10px;
+                background-color: blue;
+                color: white;
+                padding: 5px;
+              " type="submit">Apply Filter</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}

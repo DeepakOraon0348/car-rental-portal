@@ -86,23 +86,131 @@
     top: 22%;
     left: 20px;
     width: 17rem;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 160px);
     overflow-y: auto;
     z-index: 1000;
   }
   .cars-search-section-12 {
-    margin-left: 18rem;
+    width: 90%;
+    margin-top: 5.5rem;
+    margin-left: 6rem;
+  }
+  .cars-search-section-123 {
+    width: 90%;
+    margin-left: 6rem;
+  }
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .head {
+    position: fixed;
+    top: 2.5rem;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
   }
 }
 
 @media (max-width: 1440px) {
 }
 
-@media (max-width: 1026px) {
+@media (max-width: 1024px) {
+  .cars-search-section-12 {
+    width: 80%;
+    margin-top: 4rem;
+    margin-left: 9rem;
+  }
+}
+@media (max-width: 991px) {
+  .filter-sec {
+    position: fixed;
+    top: 5rem;
+    left: 8px;
+    width: 17rem;
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  .cars-search-section-12 {
+    width: 80%;
+    margin-top: 6rem;
+    margin-left: 9rem;
+  }
+  .cars-search-section-123 {
+    width: 80%;
+    margin-left: 9rem;
+  }
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .head {
+    position: fixed;
+    top: 2.5rem;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
 }
 
 @media (max-width: 768px) {
+  .filter-sec {
+    position: fixed;
+    top: 5rem;
+    left: 8px;
+    width: 12rem;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  .cars-search-section-12 {
+    width: 80%;
+    margin-top: 6rem;
+    margin-left: 5rem;
+  }
+  .cars-search-section-123 {
+    width: 80%;
+    margin-left: 5rem;
+  }
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .head {
+    position: fixed;
+    top: 2.5rem;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
 }
 
 @media (max-width: 426px) {
+  .filter-sec {
+    display: none;
+  }
+  .cars-search-section-12 {
+    width: 100%;
+    margin-top: 6rem;
+    margin-left: 0;
+  }
+  .cars-search-section-123 {
+    width: 100%;
+    margin-left: 0;
+  }
+  .filter-section-mobile {
+    background-color: #0b1621;
+    color: white;
+    height: 100%;
+  }
 }
