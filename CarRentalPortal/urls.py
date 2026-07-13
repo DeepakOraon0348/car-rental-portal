@@ -21,9 +21,9 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("myapp.urls")),
-    # path('myaddminpanel/', include('myaddminpanel.urls')),
-    path(
-        "myaddminpanel/",
-        include(("myaddminpanel.urls", "myaddminpanel"), namespace="myaddminpanel"),
-    ),
+    path("myaddminpanel/", include("myaddminpanel.urls")),
+    # path(
+    #     "myaddminpanel/",
+    #     include(("myaddminpanel.urls", "myaddminpanel"), namespace="myaddminpanel"),
+    # ),
 ]
