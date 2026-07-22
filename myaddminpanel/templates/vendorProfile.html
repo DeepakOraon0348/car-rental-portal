@@ -36,12 +36,20 @@
 
           <div class="card">
             <h3>Bookings</h3>
-            <p>34</p>
+            {% if bookingcount is not None %}
+              <p>{{ bookingcount }}</p>
+            {% else %}
+              <P>0</P>
+            {% endif %}
           </div>
 
           <div class="card">
             <h3>Earnings</h3>
-            <p>₹45,000</p>
+            {% if total_amount is not None %}
+              <p>{{ total_amount }}</p>
+            {% else %}
+              <p>0</p>
+            {% endif %}
           </div>
 
           <div class="card">

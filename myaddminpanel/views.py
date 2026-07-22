@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Sum
 from myaddminpanel.models import *
 
 
@@ -66,6 +67,9 @@ def signup_1(request):
 
 def vendor_profile(request):
     vendor_id = request.session.get("vendor_id")
+    booking = Booking.objects.filter(vendor_id=vendor_id)
+    bookingcount = booking.count()
+    total_amount = booking.aggregate(total=Sum("total_amount"))["total"] or 0
 
     print("Session Vendor ID:", vendor_id)
 
@@ -82,7 +86,13 @@ def vendor_profile(request):
     return render(
         request,
         "vendorProfile.html",
-        {"vendor": vendor, "cars": cars, "cars_count": cars_count},
+        {
+            "vendor": vendor,
+            "cars": cars,
+            "cars_count": cars_count,
+            "bookingcount": bookingcount,
+            "total_amount": total_amount,
+        },
     )
 
 
