@@ -19,6 +19,8 @@ urlpatterns = [
     path("view_details/<int:car_id>/", view_details, name="view_details"),
     path("booking/<int:car_id>/", car_booking, name="car_booking"),
     path("booking_confirm/<int:car_id>", booking_confirm, name="booking_confirm"),
+    path("mybooking/", mybooking, name="mybooking"),
+    path("booking_cancel/<int:book_id>", booking_cancel, name="booking_cancel"),
 ]
 
 if settings.DEBUG:

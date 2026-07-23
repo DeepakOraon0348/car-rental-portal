@@ -183,3 +183,15 @@ def booking_confirm(request, car_id):
             return redirect("profile")
     except Exception as e:
         return render(request, "book.html", {"car": car})
+
+
+def mybooking(request):
+    booking = Booking.objects.filter(user=request.user).select_related("car", "vendor")
+    return render(request, "mybooking.html", {"booking": booking})
+
+
+def booking_cancel(request, book_id):
+    book = get_object_or_404(Booking.objects.filter(id=book_id))
+    book.status = "Cancelled"
+    book.save()
+    return redirect("mybooking")

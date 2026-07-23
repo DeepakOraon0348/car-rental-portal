@@ -206,6 +206,14 @@ def reject_booking(request, book_id):
     return redirect("book_history")
 
 
+def completed_booking(request, book_id):
+    book = get_object_or_404(Booking.objects.filter(id=book_id))
+    book.status = "Completed"
+    book.save()
+
+    return redirect("book_history")
+
+
 def updateDriver(request, car_id):
     cars = get_object_or_404(
         Car.objects.filter(id=car_id).select_related("driver", "vendor")

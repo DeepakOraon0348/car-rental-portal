@@ -488,6 +488,11 @@ td button {
   margin-top: 20px;
 }
 
+@media (min-width: 991px) {
+  .main-content {
+    margin-left: 18%;
+  }
+}
 @media (max-width: 768px) {
   .container-1 {
     flex-direction: column;
